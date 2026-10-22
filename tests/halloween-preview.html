@@ -1,0 +1,12 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Halloween Vorschau zur Funktionsprüfung</title><link rel="stylesheet" href="../style.css"></head><body><header><b>BwR Digitale Lernwelt</b><span>Interne Prüfung mit simuliertem Speicherdienst</span></header><main><div id="exercise"></div></main><dialog id="dialog"><form method="dialog"><button class="close">×</button></form><div id="dialog-body"></div></dialog><script type="module">
+import {mount} from '../applications/halloween-waffelstand/index.js';
+const tasks=await(await fetch('../applications/halloween-waffelstand/tasks.json')).json();
+const fixture=await(await fetch('./halloween-fixture.json')).json();
+let p={answers:{},solved:{},errors:{},run_errors:{},solutions:{},run_solutions:{},completed_runs:0};
+function norm(v){return String(v).trim().toLowerCase().replace(/ €$/,'');}
+await mount(document.querySelector('#exercise'),{test:false,tasks,progress:p,
+check:async(id,given)=>{const expected=fixture[id].expected;const fields=Object.fromEntries(Object.entries(expected).map(([k,v])=>[k,norm(v)===norm(given[k])]));const correct=Object.values(fields).every(Boolean);p.answers[id]=given;if(correct)p.solved[id]=true;else{delete p.solved[id];p.errors[id]=(p.errors[id]||0)+1;p.run_errors[id]=(p.run_errors[id]||0)+1;}return {correct,fields,progress:structuredClone(p),explanation:correct?fixture[id].explanation:fixture[id].tips[(p.run_errors[id]||0)>1?1:0]};},
+solution:async id=>{if((p.run_errors[id]||0)<3)throw new Error('Noch nicht freigeschaltet');if(!p.run_solutions[id])p.solutions[id]=(p.solutions[id]||0)+1;p.run_solutions[id]=true;return {expected:fixture[id].expected,explanation:fixture[id].explanation,progress:structuredClone(p)};},
+repeat:async()=>{p={...p,answers:{},solved:{},run_errors:{},run_solutions:{},run_complete:false};return {progress:p};}
+});
+</script></body></html>

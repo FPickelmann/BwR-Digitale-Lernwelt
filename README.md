@@ -1,5 +1,15 @@
 # BwR Digitale Lernwelt
 
+## Halloween Erweiterung
+
+Bei einer bereits eingerichteten Lernwelt ausschließlich `database/04_halloween_update.sql` vollständig ausführen. Die ursprünglichen Einrichtungsskripte und Accountdateien nicht erneut ausführen. Das Update erhält Accounts, Passwörter, Freigaben und vorhandene Lernstände. Es enthält Transaktionstests mit temporären Testaccounts; deren Änderungen werden vor dem Commit verworfen. Als Ergebnis müssen 72 Prüfgruppen angezeigt werden.
+
+Danach im Lehrerbereich „Anwendungen ansehen und testen“ öffnen. „Halloween-Waffelstand“ kann ohne Speicherung getestet und der Klasse zugeordnet werden. Die Zuordnung allein schaltet keine Schüleraccounts frei. Freigaben anschließend klassenweise oder individuell einstellen.
+
+Jede Prüfgruppe zählt bei einer unrichtigen, vollständig ausgefüllten Eingabe einen Fehlversuch. Richtig ausgefüllte Felder werden einzeln markiert. Nach drei Fehlversuchen der Gruppe im aktuellen Durchlauf ist die Musterlösung serverseitig abrufbar. Ihre Nutzung wird je Aufgabe und Durchlauf einmal gezählt. Erneutes Öffnen im selben Durchlauf zählt nicht mehrfach. Eine Musterlösung schließt keine Aufgabe ab; erst die richtige eigene Eingabe zählt. Leere Felder zählen nicht als Fehlversuch. Bei Wiederholung werden aktuelle Fehlerzähler und Lösungsfreigaben zurückgesetzt, Gesamtfehler und historische Lösungsnutzung bleiben erhalten.
+
+Die Anwendung umfasst 72 Prüfgruppen: Beträge und Buchungen zu vier Geschäftsfällen sowie Eintragungen und Schritte a–g zu acht Konten. Die fachlichen Daten entstehen aus `scripts/halloween_data.py`; `scripts/build_halloween_migration.py` baut das Update. `python -m unittest discover -s tests -p 'test_*.py'` prüft die Zahlen und Kontenabschlüsse. `tests/halloween-preview.html` ist eine ausdrücklich simulierte, nicht gespeicherte UI-Prüfung; sie prüft keine echten Datenbankrechte.
+
 Eigenständige Lernplattform mit Schüleraccounts, Lehrerbereich und später ergänzbaren Anwendungen. Statische Oberfläche auf GitHub Pages; Datenbank und Serverfunktionen im eigenen Supabase-Projekt.
 
 ## Einrichtung

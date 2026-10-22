@@ -1,0 +1,1882 @@
+[
+  {
+    "id": "1.1.betrag",
+    "label": "1.1 Vier Waffeleisen – Betrag",
+    "section": "Geschaeftsfaelle",
+    "fields": [
+      {
+        "key": "amount",
+        "label": "Gesamtbetrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Ihr kauft vier Waffeleisen für je 7,00 €. Alle Zahlungen erfolgen bar. Vorsteuer und Umsatzsteuer werden nicht berücksichtigt."
+  },
+  {
+    "id": "1.1.buchung",
+    "label": "1.1 Buchungssatz",
+    "section": "Geschaeftsfaelle",
+    "fields": [
+      {
+        "key": "debit",
+        "label": "Sollkonto",
+        "type": "account"
+      },
+      {
+        "key": "credit",
+        "label": "Habenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Buchungsbetrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Ihr kauft vier Waffeleisen für je 7,00 €. Alle Zahlungen erfolgen bar. Vorsteuer und Umsatzsteuer werden nicht berücksichtigt."
+  },
+  {
+    "id": "1.2.betrag",
+    "label": "1.2 Grundzutaten – Betrag",
+    "section": "Geschaeftsfaelle",
+    "fields": [
+      {
+        "key": "amount",
+        "label": "Gesamtbetrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Für 35 Waffeln kosten die Grundzutaten zusammen 18,00 €. Benötigt werden 350 Waffeln. Alle Zahlungen erfolgen bar. Vorsteuer und Umsatzsteuer werden nicht berücksichtigt."
+  },
+  {
+    "id": "1.2.buchung",
+    "label": "1.2 Buchungssatz",
+    "section": "Geschaeftsfaelle",
+    "fields": [
+      {
+        "key": "debit",
+        "label": "Sollkonto",
+        "type": "account"
+      },
+      {
+        "key": "credit",
+        "label": "Habenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Buchungsbetrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Für 35 Waffeln kosten die Grundzutaten zusammen 18,00 €. Benötigt werden 350 Waffeln. Alle Zahlungen erfolgen bar. Vorsteuer und Umsatzsteuer werden nicht berücksichtigt."
+  },
+  {
+    "id": "1.3.betrag",
+    "label": "1.3 Sonderzutaten – Zwischenergebnisse und Gesamtbetrag",
+    "section": "Geschaeftsfaelle",
+    "fields": [
+      {
+        "key": "puder_packs",
+        "label": "Puderzucker – Packungen",
+        "type": "integer"
+      },
+      {
+        "key": "puder_cost",
+        "label": "Puderzucker – Kosten in €",
+        "type": "money"
+      },
+      {
+        "key": "nutella_packs",
+        "label": "Nutella – Packungen",
+        "type": "integer"
+      },
+      {
+        "key": "nutella_cost",
+        "label": "Nutella – Kosten in €",
+        "type": "money"
+      },
+      {
+        "key": "kakao_packs",
+        "label": "Kakao – Packungen",
+        "type": "integer"
+      },
+      {
+        "key": "kakao_cost",
+        "label": "Kakao – Kosten in €",
+        "type": "money"
+      },
+      {
+        "key": "himbeer_packs",
+        "label": "Himbeermarmelade – Packungen",
+        "type": "integer"
+      },
+      {
+        "key": "himbeer_cost",
+        "label": "Himbeermarmelade – Kosten in €",
+        "type": "money"
+      },
+      {
+        "key": "orange_packs",
+        "label": "Orangenmarmelade – Packungen",
+        "type": "integer"
+      },
+      {
+        "key": "orange_cost",
+        "label": "Orangenmarmelade – Kosten in €",
+        "type": "money"
+      },
+      {
+        "key": "total",
+        "label": "Gesamtbetrag Sonderzutaten in €",
+        "type": "money"
+      }
+    ],
+    "info": "100 Geister-Waffeln mit Puderzucker; 100 Spinnennetz-Waffeln mit Nutella; 75 Totenkopf-Waffeln mit Kakao UND Himbeermarmelade; 75 Kürbis-Waffeln mit Orangenmarmelade. Jede Packung reicht für 25 Waffeln. Packungspreise: Puderzucker 1,00 €, Nutella 4,00 €, Kakao 3,00 €, Himbeermarmelade 4,00 €, Orangenmarmelade 4,00 €."
+  },
+  {
+    "id": "1.3.buchung",
+    "label": "1.3 Buchungssatz",
+    "section": "Geschaeftsfaelle",
+    "fields": [
+      {
+        "key": "debit",
+        "label": "Sollkonto",
+        "type": "account"
+      },
+      {
+        "key": "credit",
+        "label": "Habenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Buchungsbetrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "100 Geister-Waffeln mit Puderzucker; 100 Spinnennetz-Waffeln mit Nutella; 75 Totenkopf-Waffeln mit Kakao UND Himbeermarmelade; 75 Kürbis-Waffeln mit Orangenmarmelade. Jede Packung reicht für 25 Waffeln. Packungspreise: Puderzucker 1,00 €, Nutella 4,00 €, Kakao 3,00 €, Himbeermarmelade 4,00 €, Orangenmarmelade 4,00 €."
+  },
+  {
+    "id": "1.4.betrag",
+    "label": "1.4 Verkauf – Zwischenergebnisse und Gesamtbetrag",
+    "section": "Geschaeftsfaelle",
+    "fields": [
+      {
+        "key": "geist",
+        "label": "Geister-Waffeln – Erlöse in €",
+        "type": "money"
+      },
+      {
+        "key": "spinne",
+        "label": "Spinnennetz-Waffeln – Erlöse in €",
+        "type": "money"
+      },
+      {
+        "key": "kopf",
+        "label": "Totenkopf-Waffeln – Erlöse in €",
+        "type": "money"
+      },
+      {
+        "key": "kuerbis",
+        "label": "Kürbis-Waffeln – Erlöse in €",
+        "type": "money"
+      },
+      {
+        "key": "total",
+        "label": "Gesamterlös in €",
+        "type": "money"
+      }
+    ],
+    "info": "Verkauft werden 100 Geister-Waffeln zu je 2,00 €, 100 Spinnennetz-Waffeln zu je 2,50 €, 75 Totenkopf-Waffeln zu je 3,00 € und 75 Kürbis-Waffeln zu je 2,50 €. Alle Zahlungen erfolgen bar. Vorsteuer und Umsatzsteuer werden nicht berücksichtigt."
+  },
+  {
+    "id": "1.4.buchung",
+    "label": "1.4 Buchungssatz",
+    "section": "Geschaeftsfaelle",
+    "fields": [
+      {
+        "key": "debit",
+        "label": "Sollkonto",
+        "type": "account"
+      },
+      {
+        "key": "credit",
+        "label": "Habenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Buchungsbetrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Verkauft werden 100 Geister-Waffeln zu je 2,00 €, 100 Spinnennetz-Waffeln zu je 2,50 €, 75 Totenkopf-Waffeln zu je 3,00 € und 75 Kürbis-Waffeln zu je 2,50 €. Alle Zahlungen erfolgen bar. Vorsteuer und Umsatzsteuer werden nicht berücksichtigt."
+  },
+  {
+    "id": "2.0700.a",
+    "label": "0700 MA · a) Summen ermitteln",
+    "section": "0700 MA",
+    "fields": [
+      {
+        "key": "soll",
+        "label": "Summe Soll vor Abschluss in €",
+        "type": "money"
+      },
+      {
+        "key": "haben",
+        "label": "Summe Haben vor Abschluss in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "0700"
+  },
+  {
+    "id": "2.0700.b",
+    "label": "0700 MA · b) Summen vergleichen",
+    "section": "0700 MA",
+    "fields": [
+      {
+        "key": "comparison",
+        "label": "Vergleich",
+        "type": "select",
+        "options": [
+          "Soll > Haben",
+          "Haben > Soll",
+          "Soll = Haben"
+        ]
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "0700"
+  },
+  {
+    "id": "2.0700.c",
+    "label": "0700 MA · c) Saldo berechnen",
+    "section": "0700 MA",
+    "fields": [
+      {
+        "key": "high",
+        "label": "Größere Summe in €",
+        "type": "money"
+      },
+      {
+        "key": "low",
+        "label": "Kleinere Summe in €",
+        "type": "money"
+      },
+      {
+        "key": "saldo",
+        "label": "Saldo in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "0700"
+  },
+  {
+    "id": "2.0700.d",
+    "label": "0700 MA · d) Kontoart angeben",
+    "section": "0700 MA",
+    "fields": [
+      {
+        "key": "kind",
+        "label": "Kontoart",
+        "type": "select",
+        "options": [
+          "Aufwandskonto",
+          "Ertragskonto",
+          "Konto für die Ergebnisrechnung",
+          "aktives Bestandskonto",
+          "passives Bestandskonto",
+          "Schlussbilanzkonto"
+        ]
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "0700"
+  },
+  {
+    "id": "2.0700.e",
+    "label": "0700 MA · e) Abschlusskonto angeben",
+    "section": "0700 MA",
+    "fields": [
+      {
+        "key": "account",
+        "label": "Abschlusskonto",
+        "type": "account"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "0700"
+  },
+  {
+    "id": "2.0700.eintraege",
+    "label": "0700 MA – Buchungen im T-Konto",
+    "section": "0700 MA",
+    "fields": [
+      {
+        "key": "r0_side",
+        "label": "Geschäftsfall 1 – Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "r0_contra",
+        "label": "Geschäftsfall 1 – Gegenkonto / AB",
+        "type": "account"
+      },
+      {
+        "key": "r0_amount",
+        "label": "Geschäftsfall 1 – Betrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "0700",
+    "kind": "entries"
+  },
+  {
+    "id": "2.0700.f",
+    "label": "0700 MA · f) Abschlussbuchungssatz bilden",
+    "section": "0700 MA",
+    "fields": [
+      {
+        "key": "debit",
+        "label": "Sollkonto",
+        "type": "account"
+      },
+      {
+        "key": "credit",
+        "label": "Habenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Saldobetrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "0700"
+  },
+  {
+    "id": "2.0700.g",
+    "label": "0700 MA · g) Abschluss buchen und Summen ergänzen",
+    "section": "0700 MA",
+    "fields": [
+      {
+        "key": "side",
+        "label": "Abschluss auf der Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "contra",
+        "label": "Gegenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Abschlussbetrag in €",
+        "type": "money"
+      },
+      {
+        "key": "soll",
+        "label": "Endsumme Soll in €",
+        "type": "money"
+      },
+      {
+        "key": "haben",
+        "label": "Endsumme Haben in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "0700",
+    "kind": "closing"
+  },
+  {
+    "id": "2.2880.a",
+    "label": "2880 KA · a) Summen ermitteln",
+    "section": "2880 KA",
+    "fields": [
+      {
+        "key": "soll",
+        "label": "Summe Soll vor Abschluss in €",
+        "type": "money"
+      },
+      {
+        "key": "haben",
+        "label": "Summe Haben vor Abschluss in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "2880"
+  },
+  {
+    "id": "2.2880.b",
+    "label": "2880 KA · b) Summen vergleichen",
+    "section": "2880 KA",
+    "fields": [
+      {
+        "key": "comparison",
+        "label": "Vergleich",
+        "type": "select",
+        "options": [
+          "Soll > Haben",
+          "Haben > Soll",
+          "Soll = Haben"
+        ]
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "2880"
+  },
+  {
+    "id": "2.2880.c",
+    "label": "2880 KA · c) Saldo berechnen",
+    "section": "2880 KA",
+    "fields": [
+      {
+        "key": "high",
+        "label": "Größere Summe in €",
+        "type": "money"
+      },
+      {
+        "key": "low",
+        "label": "Kleinere Summe in €",
+        "type": "money"
+      },
+      {
+        "key": "saldo",
+        "label": "Saldo in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "2880"
+  },
+  {
+    "id": "2.2880.d",
+    "label": "2880 KA · d) Kontoart angeben",
+    "section": "2880 KA",
+    "fields": [
+      {
+        "key": "kind",
+        "label": "Kontoart",
+        "type": "select",
+        "options": [
+          "Aufwandskonto",
+          "Ertragskonto",
+          "Konto für die Ergebnisrechnung",
+          "aktives Bestandskonto",
+          "passives Bestandskonto",
+          "Schlussbilanzkonto"
+        ]
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "2880"
+  },
+  {
+    "id": "2.2880.e",
+    "label": "2880 KA · e) Abschlusskonto angeben",
+    "section": "2880 KA",
+    "fields": [
+      {
+        "key": "account",
+        "label": "Abschlusskonto",
+        "type": "account"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "2880"
+  },
+  {
+    "id": "2.2880.eintraege",
+    "label": "2880 KA – Buchungen im T-Konto",
+    "section": "2880 KA",
+    "fields": [
+      {
+        "key": "r0_side",
+        "label": "Anfangsbestand – Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "r0_contra",
+        "label": "Anfangsbestand – Gegenkonto / AB",
+        "type": "account"
+      },
+      {
+        "key": "r0_amount",
+        "label": "Anfangsbestand – Betrag in €",
+        "type": "money"
+      },
+      {
+        "key": "r1_side",
+        "label": "Geschäftsfall 1 – Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "r1_contra",
+        "label": "Geschäftsfall 1 – Gegenkonto / AB",
+        "type": "account"
+      },
+      {
+        "key": "r1_amount",
+        "label": "Geschäftsfall 1 – Betrag in €",
+        "type": "money"
+      },
+      {
+        "key": "r2_side",
+        "label": "Geschäftsfall 2 – Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "r2_contra",
+        "label": "Geschäftsfall 2 – Gegenkonto / AB",
+        "type": "account"
+      },
+      {
+        "key": "r2_amount",
+        "label": "Geschäftsfall 2 – Betrag in €",
+        "type": "money"
+      },
+      {
+        "key": "r3_side",
+        "label": "Geschäftsfall 3 – Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "r3_contra",
+        "label": "Geschäftsfall 3 – Gegenkonto / AB",
+        "type": "account"
+      },
+      {
+        "key": "r3_amount",
+        "label": "Geschäftsfall 3 – Betrag in €",
+        "type": "money"
+      },
+      {
+        "key": "r4_side",
+        "label": "Geschäftsfall 4 – Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "r4_contra",
+        "label": "Geschäftsfall 4 – Gegenkonto / AB",
+        "type": "account"
+      },
+      {
+        "key": "r4_amount",
+        "label": "Geschäftsfall 4 – Betrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "2880",
+    "kind": "entries"
+  },
+  {
+    "id": "2.2880.f",
+    "label": "2880 KA · f) Abschlussbuchungssatz bilden",
+    "section": "2880 KA",
+    "fields": [
+      {
+        "key": "debit",
+        "label": "Sollkonto",
+        "type": "account"
+      },
+      {
+        "key": "credit",
+        "label": "Habenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Saldobetrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "2880"
+  },
+  {
+    "id": "2.2880.g",
+    "label": "2880 KA · g) Abschluss buchen und Summen ergänzen",
+    "section": "2880 KA",
+    "fields": [
+      {
+        "key": "side",
+        "label": "Abschluss auf der Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "contra",
+        "label": "Gegenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Abschlussbetrag in €",
+        "type": "money"
+      },
+      {
+        "key": "soll",
+        "label": "Endsumme Soll in €",
+        "type": "money"
+      },
+      {
+        "key": "haben",
+        "label": "Endsumme Haben in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "2880",
+    "kind": "closing"
+  },
+  {
+    "id": "2.3000.a",
+    "label": "3000 EK · a) Summen ermitteln",
+    "section": "3000 EK",
+    "fields": [
+      {
+        "key": "soll",
+        "label": "Summe Soll vor Abschluss in €",
+        "type": "money"
+      },
+      {
+        "key": "haben",
+        "label": "Summe Haben vor Abschluss in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "3000"
+  },
+  {
+    "id": "2.3000.b",
+    "label": "3000 EK · b) Summen vergleichen",
+    "section": "3000 EK",
+    "fields": [
+      {
+        "key": "comparison",
+        "label": "Vergleich",
+        "type": "select",
+        "options": [
+          "Soll > Haben",
+          "Haben > Soll",
+          "Soll = Haben"
+        ]
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "3000"
+  },
+  {
+    "id": "2.3000.c",
+    "label": "3000 EK · c) Saldo berechnen",
+    "section": "3000 EK",
+    "fields": [
+      {
+        "key": "high",
+        "label": "Größere Summe in €",
+        "type": "money"
+      },
+      {
+        "key": "low",
+        "label": "Kleinere Summe in €",
+        "type": "money"
+      },
+      {
+        "key": "saldo",
+        "label": "Saldo in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "3000"
+  },
+  {
+    "id": "2.3000.d",
+    "label": "3000 EK · d) Kontoart angeben",
+    "section": "3000 EK",
+    "fields": [
+      {
+        "key": "kind",
+        "label": "Kontoart",
+        "type": "select",
+        "options": [
+          "Aufwandskonto",
+          "Ertragskonto",
+          "Konto für die Ergebnisrechnung",
+          "aktives Bestandskonto",
+          "passives Bestandskonto",
+          "Schlussbilanzkonto"
+        ]
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "3000"
+  },
+  {
+    "id": "2.3000.e",
+    "label": "3000 EK · e) Abschlusskonto angeben",
+    "section": "3000 EK",
+    "fields": [
+      {
+        "key": "account",
+        "label": "Abschlusskonto",
+        "type": "account"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "3000"
+  },
+  {
+    "id": "2.3000.eintraege",
+    "label": "3000 EK – Buchungen im T-Konto",
+    "section": "3000 EK",
+    "fields": [
+      {
+        "key": "r0_side",
+        "label": "Anfangsbestand – Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "r0_contra",
+        "label": "Anfangsbestand – Gegenkonto / AB",
+        "type": "account"
+      },
+      {
+        "key": "r0_amount",
+        "label": "Anfangsbestand – Betrag in €",
+        "type": "money"
+      },
+      {
+        "key": "r1_side",
+        "label": "Übernahme des Gewinns – Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "r1_contra",
+        "label": "Übernahme des Gewinns – Gegenkonto / AB",
+        "type": "account"
+      },
+      {
+        "key": "r1_amount",
+        "label": "Übernahme des Gewinns – Betrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "3000",
+    "kind": "entries"
+  },
+  {
+    "id": "2.3000.f",
+    "label": "3000 EK · f) Abschlussbuchungssatz bilden",
+    "section": "3000 EK",
+    "fields": [
+      {
+        "key": "debit",
+        "label": "Sollkonto",
+        "type": "account"
+      },
+      {
+        "key": "credit",
+        "label": "Habenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Saldobetrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "3000"
+  },
+  {
+    "id": "2.3000.g",
+    "label": "3000 EK · g) Abschluss buchen und Summen ergänzen",
+    "section": "3000 EK",
+    "fields": [
+      {
+        "key": "side",
+        "label": "Abschluss auf der Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "contra",
+        "label": "Gegenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Abschlussbetrag in €",
+        "type": "money"
+      },
+      {
+        "key": "soll",
+        "label": "Endsumme Soll in €",
+        "type": "money"
+      },
+      {
+        "key": "haben",
+        "label": "Endsumme Haben in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "3000",
+    "kind": "closing"
+  },
+  {
+    "id": "2.5000.a",
+    "label": "5000 UEFE · a) Summen ermitteln",
+    "section": "5000 UEFE",
+    "fields": [
+      {
+        "key": "soll",
+        "label": "Summe Soll vor Abschluss in €",
+        "type": "money"
+      },
+      {
+        "key": "haben",
+        "label": "Summe Haben vor Abschluss in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "5000"
+  },
+  {
+    "id": "2.5000.b",
+    "label": "5000 UEFE · b) Summen vergleichen",
+    "section": "5000 UEFE",
+    "fields": [
+      {
+        "key": "comparison",
+        "label": "Vergleich",
+        "type": "select",
+        "options": [
+          "Soll > Haben",
+          "Haben > Soll",
+          "Soll = Haben"
+        ]
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "5000"
+  },
+  {
+    "id": "2.5000.c",
+    "label": "5000 UEFE · c) Saldo berechnen",
+    "section": "5000 UEFE",
+    "fields": [
+      {
+        "key": "high",
+        "label": "Größere Summe in €",
+        "type": "money"
+      },
+      {
+        "key": "low",
+        "label": "Kleinere Summe in €",
+        "type": "money"
+      },
+      {
+        "key": "saldo",
+        "label": "Saldo in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "5000"
+  },
+  {
+    "id": "2.5000.d",
+    "label": "5000 UEFE · d) Kontoart angeben",
+    "section": "5000 UEFE",
+    "fields": [
+      {
+        "key": "kind",
+        "label": "Kontoart",
+        "type": "select",
+        "options": [
+          "Aufwandskonto",
+          "Ertragskonto",
+          "Konto für die Ergebnisrechnung",
+          "aktives Bestandskonto",
+          "passives Bestandskonto",
+          "Schlussbilanzkonto"
+        ]
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "5000"
+  },
+  {
+    "id": "2.5000.e",
+    "label": "5000 UEFE · e) Abschlusskonto angeben",
+    "section": "5000 UEFE",
+    "fields": [
+      {
+        "key": "account",
+        "label": "Abschlusskonto",
+        "type": "account"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "5000"
+  },
+  {
+    "id": "2.5000.eintraege",
+    "label": "5000 UEFE – Buchungen im T-Konto",
+    "section": "5000 UEFE",
+    "fields": [
+      {
+        "key": "r0_side",
+        "label": "Geschäftsfall 4 – Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "r0_contra",
+        "label": "Geschäftsfall 4 – Gegenkonto / AB",
+        "type": "account"
+      },
+      {
+        "key": "r0_amount",
+        "label": "Geschäftsfall 4 – Betrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "5000",
+    "kind": "entries"
+  },
+  {
+    "id": "2.5000.f",
+    "label": "5000 UEFE · f) Abschlussbuchungssatz bilden",
+    "section": "5000 UEFE",
+    "fields": [
+      {
+        "key": "debit",
+        "label": "Sollkonto",
+        "type": "account"
+      },
+      {
+        "key": "credit",
+        "label": "Habenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Saldobetrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "5000"
+  },
+  {
+    "id": "2.5000.g",
+    "label": "5000 UEFE · g) Abschluss buchen und Summen ergänzen",
+    "section": "5000 UEFE",
+    "fields": [
+      {
+        "key": "side",
+        "label": "Abschluss auf der Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "contra",
+        "label": "Gegenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Abschlussbetrag in €",
+        "type": "money"
+      },
+      {
+        "key": "soll",
+        "label": "Endsumme Soll in €",
+        "type": "money"
+      },
+      {
+        "key": "haben",
+        "label": "Endsumme Haben in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "5000",
+    "kind": "closing"
+  },
+  {
+    "id": "2.6000.a",
+    "label": "6000 AWR · a) Summen ermitteln",
+    "section": "6000 AWR",
+    "fields": [
+      {
+        "key": "soll",
+        "label": "Summe Soll vor Abschluss in €",
+        "type": "money"
+      },
+      {
+        "key": "haben",
+        "label": "Summe Haben vor Abschluss in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "6000"
+  },
+  {
+    "id": "2.6000.b",
+    "label": "6000 AWR · b) Summen vergleichen",
+    "section": "6000 AWR",
+    "fields": [
+      {
+        "key": "comparison",
+        "label": "Vergleich",
+        "type": "select",
+        "options": [
+          "Soll > Haben",
+          "Haben > Soll",
+          "Soll = Haben"
+        ]
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "6000"
+  },
+  {
+    "id": "2.6000.c",
+    "label": "6000 AWR · c) Saldo berechnen",
+    "section": "6000 AWR",
+    "fields": [
+      {
+        "key": "high",
+        "label": "Größere Summe in €",
+        "type": "money"
+      },
+      {
+        "key": "low",
+        "label": "Kleinere Summe in €",
+        "type": "money"
+      },
+      {
+        "key": "saldo",
+        "label": "Saldo in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "6000"
+  },
+  {
+    "id": "2.6000.d",
+    "label": "6000 AWR · d) Kontoart angeben",
+    "section": "6000 AWR",
+    "fields": [
+      {
+        "key": "kind",
+        "label": "Kontoart",
+        "type": "select",
+        "options": [
+          "Aufwandskonto",
+          "Ertragskonto",
+          "Konto für die Ergebnisrechnung",
+          "aktives Bestandskonto",
+          "passives Bestandskonto",
+          "Schlussbilanzkonto"
+        ]
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "6000"
+  },
+  {
+    "id": "2.6000.e",
+    "label": "6000 AWR · e) Abschlusskonto angeben",
+    "section": "6000 AWR",
+    "fields": [
+      {
+        "key": "account",
+        "label": "Abschlusskonto",
+        "type": "account"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "6000"
+  },
+  {
+    "id": "2.6000.eintraege",
+    "label": "6000 AWR – Buchungen im T-Konto",
+    "section": "6000 AWR",
+    "fields": [
+      {
+        "key": "r0_side",
+        "label": "Geschäftsfall 2 – Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "r0_contra",
+        "label": "Geschäftsfall 2 – Gegenkonto / AB",
+        "type": "account"
+      },
+      {
+        "key": "r0_amount",
+        "label": "Geschäftsfall 2 – Betrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "6000",
+    "kind": "entries"
+  },
+  {
+    "id": "2.6000.f",
+    "label": "6000 AWR · f) Abschlussbuchungssatz bilden",
+    "section": "6000 AWR",
+    "fields": [
+      {
+        "key": "debit",
+        "label": "Sollkonto",
+        "type": "account"
+      },
+      {
+        "key": "credit",
+        "label": "Habenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Saldobetrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "6000"
+  },
+  {
+    "id": "2.6000.g",
+    "label": "6000 AWR · g) Abschluss buchen und Summen ergänzen",
+    "section": "6000 AWR",
+    "fields": [
+      {
+        "key": "side",
+        "label": "Abschluss auf der Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "contra",
+        "label": "Gegenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Abschlussbetrag in €",
+        "type": "money"
+      },
+      {
+        "key": "soll",
+        "label": "Endsumme Soll in €",
+        "type": "money"
+      },
+      {
+        "key": "haben",
+        "label": "Endsumme Haben in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "6000",
+    "kind": "closing"
+  },
+  {
+    "id": "2.6020.a",
+    "label": "6020 AWH · a) Summen ermitteln",
+    "section": "6020 AWH",
+    "fields": [
+      {
+        "key": "soll",
+        "label": "Summe Soll vor Abschluss in €",
+        "type": "money"
+      },
+      {
+        "key": "haben",
+        "label": "Summe Haben vor Abschluss in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "6020"
+  },
+  {
+    "id": "2.6020.b",
+    "label": "6020 AWH · b) Summen vergleichen",
+    "section": "6020 AWH",
+    "fields": [
+      {
+        "key": "comparison",
+        "label": "Vergleich",
+        "type": "select",
+        "options": [
+          "Soll > Haben",
+          "Haben > Soll",
+          "Soll = Haben"
+        ]
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "6020"
+  },
+  {
+    "id": "2.6020.c",
+    "label": "6020 AWH · c) Saldo berechnen",
+    "section": "6020 AWH",
+    "fields": [
+      {
+        "key": "high",
+        "label": "Größere Summe in €",
+        "type": "money"
+      },
+      {
+        "key": "low",
+        "label": "Kleinere Summe in €",
+        "type": "money"
+      },
+      {
+        "key": "saldo",
+        "label": "Saldo in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "6020"
+  },
+  {
+    "id": "2.6020.d",
+    "label": "6020 AWH · d) Kontoart angeben",
+    "section": "6020 AWH",
+    "fields": [
+      {
+        "key": "kind",
+        "label": "Kontoart",
+        "type": "select",
+        "options": [
+          "Aufwandskonto",
+          "Ertragskonto",
+          "Konto für die Ergebnisrechnung",
+          "aktives Bestandskonto",
+          "passives Bestandskonto",
+          "Schlussbilanzkonto"
+        ]
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "6020"
+  },
+  {
+    "id": "2.6020.e",
+    "label": "6020 AWH · e) Abschlusskonto angeben",
+    "section": "6020 AWH",
+    "fields": [
+      {
+        "key": "account",
+        "label": "Abschlusskonto",
+        "type": "account"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "6020"
+  },
+  {
+    "id": "2.6020.eintraege",
+    "label": "6020 AWH – Buchungen im T-Konto",
+    "section": "6020 AWH",
+    "fields": [
+      {
+        "key": "r0_side",
+        "label": "Geschäftsfall 3 – Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "r0_contra",
+        "label": "Geschäftsfall 3 – Gegenkonto / AB",
+        "type": "account"
+      },
+      {
+        "key": "r0_amount",
+        "label": "Geschäftsfall 3 – Betrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "6020",
+    "kind": "entries"
+  },
+  {
+    "id": "2.6020.f",
+    "label": "6020 AWH · f) Abschlussbuchungssatz bilden",
+    "section": "6020 AWH",
+    "fields": [
+      {
+        "key": "debit",
+        "label": "Sollkonto",
+        "type": "account"
+      },
+      {
+        "key": "credit",
+        "label": "Habenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Saldobetrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "6020"
+  },
+  {
+    "id": "2.6020.g",
+    "label": "6020 AWH · g) Abschluss buchen und Summen ergänzen",
+    "section": "6020 AWH",
+    "fields": [
+      {
+        "key": "side",
+        "label": "Abschluss auf der Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "contra",
+        "label": "Gegenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Abschlussbetrag in €",
+        "type": "money"
+      },
+      {
+        "key": "soll",
+        "label": "Endsumme Soll in €",
+        "type": "money"
+      },
+      {
+        "key": "haben",
+        "label": "Endsumme Haben in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "6020",
+    "kind": "closing"
+  },
+  {
+    "id": "2.8010.a",
+    "label": "8010 SBK · a) Summen ermitteln",
+    "section": "8010 SBK",
+    "fields": [
+      {
+        "key": "soll",
+        "label": "Summe Soll vor Abschluss in €",
+        "type": "money"
+      },
+      {
+        "key": "haben",
+        "label": "Summe Haben vor Abschluss in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "8010"
+  },
+  {
+    "id": "2.8010.b",
+    "label": "8010 SBK · b) Summen vergleichen",
+    "section": "8010 SBK",
+    "fields": [
+      {
+        "key": "comparison",
+        "label": "Vergleich",
+        "type": "select",
+        "options": [
+          "Soll > Haben",
+          "Haben > Soll",
+          "Soll = Haben"
+        ]
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "8010"
+  },
+  {
+    "id": "2.8010.c",
+    "label": "8010 SBK · c) Saldo berechnen",
+    "section": "8010 SBK",
+    "fields": [
+      {
+        "key": "high",
+        "label": "Größere Summe in €",
+        "type": "money"
+      },
+      {
+        "key": "low",
+        "label": "Kleinere Summe in €",
+        "type": "money"
+      },
+      {
+        "key": "saldo",
+        "label": "Saldo in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "8010"
+  },
+  {
+    "id": "2.8010.d",
+    "label": "8010 SBK · d) Kontoart angeben",
+    "section": "8010 SBK",
+    "fields": [
+      {
+        "key": "kind",
+        "label": "Kontoart",
+        "type": "select",
+        "options": [
+          "Aufwandskonto",
+          "Ertragskonto",
+          "Konto für die Ergebnisrechnung",
+          "aktives Bestandskonto",
+          "passives Bestandskonto",
+          "Schlussbilanzkonto"
+        ]
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "8010"
+  },
+  {
+    "id": "2.8010.e",
+    "label": "8010 SBK · e) Abschlusskonto angeben",
+    "section": "8010 SBK",
+    "fields": [
+      {
+        "key": "account",
+        "label": "Abschlusskonto",
+        "type": "account"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "8010"
+  },
+  {
+    "id": "2.8010.eintraege",
+    "label": "8010 SBK – Buchungen im T-Konto",
+    "section": "8010 SBK",
+    "fields": [
+      {
+        "key": "r0_side",
+        "label": "Abschluss Kasse – Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "r0_contra",
+        "label": "Abschluss Kasse – Gegenkonto / AB",
+        "type": "account"
+      },
+      {
+        "key": "r0_amount",
+        "label": "Abschluss Kasse – Betrag in €",
+        "type": "money"
+      },
+      {
+        "key": "r1_side",
+        "label": "Abschluss MA – Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "r1_contra",
+        "label": "Abschluss MA – Gegenkonto / AB",
+        "type": "account"
+      },
+      {
+        "key": "r1_amount",
+        "label": "Abschluss MA – Betrag in €",
+        "type": "money"
+      },
+      {
+        "key": "r2_side",
+        "label": "Abschluss EK – Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "r2_contra",
+        "label": "Abschluss EK – Gegenkonto / AB",
+        "type": "account"
+      },
+      {
+        "key": "r2_amount",
+        "label": "Abschluss EK – Betrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "8010",
+    "kind": "entries"
+  },
+  {
+    "id": "2.8010.f",
+    "label": "8010 SBK · f) Abschlussbuchungssatz bilden",
+    "section": "8010 SBK",
+    "fields": [
+      {
+        "key": "closing",
+        "label": "Abschlussbuchung",
+        "type": "select",
+        "options": [
+          "Buchungssatz erforderlich",
+          "entfällt"
+        ]
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "8010"
+  },
+  {
+    "id": "2.8010.g",
+    "label": "8010 SBK · g) Abschluss buchen und Summen ergänzen",
+    "section": "8010 SBK",
+    "fields": [
+      {
+        "key": "soll",
+        "label": "Endsumme Soll in €",
+        "type": "money"
+      },
+      {
+        "key": "haben",
+        "label": "Endsumme Haben in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "8010",
+    "kind": "closing"
+  },
+  {
+    "id": "2.8020.a",
+    "label": "8020 GUV · a) Summen ermitteln",
+    "section": "8020 GUV",
+    "fields": [
+      {
+        "key": "soll",
+        "label": "Summe Soll vor Abschluss in €",
+        "type": "money"
+      },
+      {
+        "key": "haben",
+        "label": "Summe Haben vor Abschluss in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "8020"
+  },
+  {
+    "id": "2.8020.b",
+    "label": "8020 GUV · b) Summen vergleichen",
+    "section": "8020 GUV",
+    "fields": [
+      {
+        "key": "comparison",
+        "label": "Vergleich",
+        "type": "select",
+        "options": [
+          "Soll > Haben",
+          "Haben > Soll",
+          "Soll = Haben"
+        ]
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "8020"
+  },
+  {
+    "id": "2.8020.c",
+    "label": "8020 GUV · c) Saldo berechnen",
+    "section": "8020 GUV",
+    "fields": [
+      {
+        "key": "high",
+        "label": "Größere Summe in €",
+        "type": "money"
+      },
+      {
+        "key": "low",
+        "label": "Kleinere Summe in €",
+        "type": "money"
+      },
+      {
+        "key": "saldo",
+        "label": "Saldo in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "8020"
+  },
+  {
+    "id": "2.8020.d",
+    "label": "8020 GUV · d) Kontoart angeben",
+    "section": "8020 GUV",
+    "fields": [
+      {
+        "key": "kind",
+        "label": "Kontoart",
+        "type": "select",
+        "options": [
+          "Aufwandskonto",
+          "Ertragskonto",
+          "Konto für die Ergebnisrechnung",
+          "aktives Bestandskonto",
+          "passives Bestandskonto",
+          "Schlussbilanzkonto"
+        ]
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "8020"
+  },
+  {
+    "id": "2.8020.e",
+    "label": "8020 GUV · e) Abschlusskonto angeben",
+    "section": "8020 GUV",
+    "fields": [
+      {
+        "key": "account",
+        "label": "Abschlusskonto",
+        "type": "account"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "8020"
+  },
+  {
+    "id": "2.8020.eintraege",
+    "label": "8020 GUV – Buchungen im T-Konto",
+    "section": "8020 GUV",
+    "fields": [
+      {
+        "key": "r0_side",
+        "label": "Abschluss AWR – Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "r0_contra",
+        "label": "Abschluss AWR – Gegenkonto / AB",
+        "type": "account"
+      },
+      {
+        "key": "r0_amount",
+        "label": "Abschluss AWR – Betrag in €",
+        "type": "money"
+      },
+      {
+        "key": "r1_side",
+        "label": "Abschluss AWH – Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "r1_contra",
+        "label": "Abschluss AWH – Gegenkonto / AB",
+        "type": "account"
+      },
+      {
+        "key": "r1_amount",
+        "label": "Abschluss AWH – Betrag in €",
+        "type": "money"
+      },
+      {
+        "key": "r2_side",
+        "label": "Abschluss UEFE – Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "r2_contra",
+        "label": "Abschluss UEFE – Gegenkonto / AB",
+        "type": "account"
+      },
+      {
+        "key": "r2_amount",
+        "label": "Abschluss UEFE – Betrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "8020",
+    "kind": "entries"
+  },
+  {
+    "id": "2.8020.f",
+    "label": "8020 GUV · f) Abschlussbuchungssatz bilden",
+    "section": "8020 GUV",
+    "fields": [
+      {
+        "key": "debit",
+        "label": "Sollkonto",
+        "type": "account"
+      },
+      {
+        "key": "credit",
+        "label": "Habenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Saldobetrag in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "8020"
+  },
+  {
+    "id": "2.8020.g",
+    "label": "8020 GUV · g) Abschluss buchen und Summen ergänzen",
+    "section": "8020 GUV",
+    "fields": [
+      {
+        "key": "side",
+        "label": "Abschluss auf der Seite",
+        "type": "select",
+        "options": [
+          "Soll",
+          "Haben"
+        ]
+      },
+      {
+        "key": "contra",
+        "label": "Gegenkonto",
+        "type": "account"
+      },
+      {
+        "key": "amount",
+        "label": "Abschlussbetrag in €",
+        "type": "money"
+      },
+      {
+        "key": "soll",
+        "label": "Endsumme Soll in €",
+        "type": "money"
+      },
+      {
+        "key": "haben",
+        "label": "Endsumme Haben in €",
+        "type": "money"
+      }
+    ],
+    "info": "Relevante Geschäftsfälle: vier Waffeleisen für je 7,00 €; Grundzutaten für 350 Waffeln (18,00 € je 35 Waffeln); Sonderzutaten und Verkäufe wie in Aufgabe 1. Anfangsbestand der Klassenkasse: 700,00 €. Dieser Betrag wird auch als Anfangsbestand des Eigenkapitals erfasst. Alle Zahlungen bar; keine Umsatzsteuer und keine Abschreibung. Bei GUV und EK sind die vorhergehenden Abschlussbuchungen zu berücksichtigen.",
+    "account": "8020",
+    "kind": "closing"
+  }
+]
