@@ -1,0 +1,7 @@
+node_modules/
+private_setup/
+*Zugangsdaten*
+*zugangsdaten*
+02_accounts.sql
+.env*
+!.env.example
