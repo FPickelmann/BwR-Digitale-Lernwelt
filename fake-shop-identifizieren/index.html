@@ -163,6 +163,7 @@ app.addEventListener('click',e=>{
  const action=button.dataset.action;
  if(action==='table'){tableOpen=true;render();return}
  if(tableOpen){
+  if(button.closest('#table-pass'))return;
   const {table,card,slot,remove,checkRow}=button.dataset;
   if(table==='back'){tableOpen=false;render();return}
   if(table==='clear'){slots.fill(null);checked.clear();picked=null}
