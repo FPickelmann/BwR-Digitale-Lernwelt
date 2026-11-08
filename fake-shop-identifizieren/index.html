@@ -16,12 +16,17 @@ button{border-color:#bfcee3;border-radius:10px;font-weight:650}button.primary,.p
 .terms-sheet{max-width:66ch;margin:auto;padding:clamp(14px,4vw,32px);border:1px solid #d4e1f2;border-radius:12px;background:#f7faff}.terms-sheet h3,.card h3{margin:.2em 0}.terms-sheet p{margin:.4em 0 1.25em}.terms-sheet p:last-child{margin-bottom:0}.card{overflow-wrap:anywhere}
 .directory{background:#f5f5f7;border:1px solid #d3d6de;border-radius:18px;overflow:hidden;padding-bottom:18px}.directory-browser{display:flex;align-items:center;gap:10px;background:#e8ebf0;padding:12px 18px}.directory-browser code{background:white;border-radius:8px;padding:5px 10px;overflow-wrap:anywhere}.directory-banner{display:flex;align-items:center;gap:14px;background:#ffdb12;padding:16px 20px;border-radius:0 0 22px 22px}.directory-banner .trust{border:0;background:transparent;padding:0}.directory-search{flex:1;background:white;border-radius:24px;padding:8px 14px}.directory-label{margin:12px 20px;color:#45516a;font-size:.85rem}.directory-grid{display:grid;grid-template-columns: minmax(150px,1fr) 3fr;gap:16px;padding:0 20px 16px}.directory-grid aside,.directory-grid article{background:white;border-radius:13px;padding:17px;box-shadow:0 4px 13px #21314c12}.directory-grid article{border-top:6px solid #ffdb12}.directory-grid h2{font-size:1.25rem}.directory-grid h3{margin:0;font-size:1.4rem}.directory-valid{background:#def8e4;color:#205f33;border-radius:6px;padding:3px 8px}.directory>button{margin-left:20px}@media(max-width:560px){.directory-grid{grid-template-columns:1fr}.directory-grid aside ul{display:flex;gap:16px;flex-wrap:wrap;margin:0}.directory-banner{flex-wrap:wrap}}
 .marking .token{cursor:crosshair}.token.marked{outline:2px solid #225dc3;border-radius:3px;background:#e4efff!important}.token:focus-visible{outline:2px solid #995000}.token{box-decoration-break:clone}
+.solution-note{margin-top:16px;background:#e3f7ed;border-color:#87bea5}.solution-note h2{font-size:1.3rem}.solution-note p{margin-bottom:0}
 </style><main id="app"></main>
 <script>
 const app=document.querySelector('#app');
 const labels={product:'Produkt',reviews:'Bewertungen',contact:'Kontakt',legal:'Impressum',terms:'AGB',details:'Produktdetails',checkout:'Zur Bestellung'};
 const clues=new Set(['price','pay','legal','contact','seal','reviews','url','terms','details']);
 let shop='',page='product',marking=false,feedback='',timer;
+const hintTexts={"spar":["Unrealistisch niedrige Preise für teure Produkte","Nur Vorkasse per Überweisung","Fehlt, ist nicht aufrufbar, enthält unvollständige bzw. falsche Angaben, es ist nur ein Postfach angegeben","Fehlende Kontaktdaten oder auffällige E-Mail-Adresse ohne eigene Shop-Domain","Erfundenes oder kopiertes Siegel ohne überprüfbaren Nachweis","Nur Bestbewertungen, keine älteren Bewertungen","Unverschlüsselte Verbindung (http://), Tippfehler im Markennamen, auffällige Endungen (z. B. .de.com oder .shop)","Fehlerhafte AGB, z. B. mit fremdem Firmennamen","Auffällige Rechtschreibfehler, Platzhaltertexte oder leere bzw. nicht aufrufbare Unterseiten"],"apple":["Preis so kalkuliert, dass Gewinn möglich ist","Mehrere Zahlungsarten, z. B. PayPal (mit Käuferschutz), Kauf auf Rechnung, Kreditkarte, SEPA-Lastschrift","Name, Rechtsform, vollständige Anschrift, Kontaktdaten, ggf. Registerdaten, Umsatzsteuer-ID oder Wirtschafts-Identifikationsnummer","Telefonnummer und E-Mail-Adresse mit eigener Domain","Klick auf das Siegel führt zur Website des Zertifizierers mit einem gültigen Zertifikat für genau diesen Händler","Unterschiedliche Bewertungen über einen längeren Zeitraum, auch auf unabhängigen Plattformen","Verschlüsselte Verbindung (https://), meist mit Firmennamen in der Webadresse","Leicht auffindbare AGB, Firmenname stimmt mit dem Impressum überein","Einheitlich gestaltete Website mit vollständigen, verständlichen Texten"]};
+const hintTitles=['Preise','Bezahlung','Impressum','Kontaktdaten','Gütesiegel','Bewertungen','Shop-URL','AGB','Erscheinungsbild der Website'];
+let unlocked=false, hint='';
+function resetSearch(){if(shop)state().clear();marking=false;feedback='';unlocked=false;hint=''}
 const selected={spar:new Set(),apple:new Set()};
 const state=()=>selected[shop];
 const isFake=()=>shop==='spar';
@@ -98,18 +103,22 @@ function render(){
  }
  app.className=marking?'marking':'';
  app.innerHTML='<div class="toolbar">'+btn('home','← Shop-Auswahl')+btn('mark',marking?'Suchmodus beenden':'Suchmodus starten','primary')+btn('check','Auswahl prüfen')+'<span role="status">'+feedback+'</span></div><header>'+mark('url','<small class="address"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>'+(isFake()?'http://aple-angebote.shop':'https://www.apple.com/de/')+'</small>')+'<h1>'+(isFake()?'Sparhandy':'Apple')+'</h1><nav>'+['product','reviews','contact'].map(nav).join('')+'</nav></header><section>'+body()+'</section><section><nav>'+['legal','terms','contact'].map(nav).join('')+'</nav></section><small>Unterrichtssimulation · '+(isFake()?'Sparhandy':'Apple-Vergleichsseite')+'</small>';
+ if(unlocked){
+ const index=[...clues].indexOf(hint);
+ app.insertAdjacentHTML('beforeend','<section class="solution-note" id="solution-note" tabindex="-1"><h2>'+(index<0?'Lösungshinweise freigeschaltet':'Lösungshinweis · '+hintTitles[index])+'</h2><p>'+(index<0?'Wähle eine richtig markierte Stelle aus, um die Erklärung zu lesen.':hintTexts[shop][index])+'</p></section>');
+ }
  decorate();tick();if(document.querySelector('#clock'))timer=setInterval(tick,1000);
 }
 app.addEventListener('click',e=>{
  const hit=e.target.closest('[data-mark]');
- if(marking&&hit){e.stopPropagation();e.preventDefault();const id=hit.dataset.mark;state().has(id)?state().delete(id):state().add(id);feedback='';render();app.querySelector('[data-mark="'+id+'"]').focus();return}
+ if(marking&&hit){e.stopPropagation();e.preventDefault();const id=hit.dataset.mark;if(unlocked){const group=groups[shop].get(id);if(state().has(id)&&group){hint=group;render();document.querySelector('#solution-note').focus()}return}state().has(id)?state().delete(id):state().add(id);feedback='';render();app.querySelector('[data-mark="'+id+'"]').focus();return}
  const button=e.target.closest('button');if(!button)return;
  const action=button.dataset.action;
  if(button.dataset.page){page=button.dataset.page;feedback='';if(isFake()&&page==='checkout'&&!sessionStorage.getItem('wr-fakeshop-deadline'))sessionStorage.setItem('wr-fakeshop-deadline',Date.now()+600000)}
- if(action==='home'){shop='';marking=false;feedback=''}
+ if(action==='home'){resetSearch();shop=''}
  if(action==='spar'||action==='apple'){shop=action;page='product';marking=false;feedback=''}
- if(action==='mark')marking=!marking;
- if(action==='check'){const selectedGroups=[...state()].map(key=>groups[shop].get(key));const count=new Set(selectedGroups.filter(Boolean)).size;feedback=(isFake()?'Fake-Shop-Merkmale identifizieren':'Merkmale eines seriösen Online-Shops identifizieren')+' · '+count+' von 9 gefunden · '+(9-count)+' fehlen · '+selectedGroups.filter(group=>!group).length+' falsch markiert'}
+ if(action==='mark'){if(marking)resetSearch();else marking=true;}
+ if(action==='check'){const selectedGroups=[...state()].map(key=>groups[shop].get(key));const count=new Set(selectedGroups.filter(Boolean)).size;if(marking&&count===clues.size)unlocked=true;feedback=(isFake()?'Fake-Shop-Merkmale identifizieren':'Merkmale eines seriösen Online-Shops identifizieren')+' · '+count+' von 9 gefunden · '+(9-count)+' fehlen · '+selectedGroups.filter(group=>!group).length+' falsch markiert'}
  render();
 });
 app.addEventListener('keydown',e=>{if(marking&&e.target.matches('[data-mark]')&&['Enter',' '].includes(e.key)){e.preventDefault();e.target.click()}});
