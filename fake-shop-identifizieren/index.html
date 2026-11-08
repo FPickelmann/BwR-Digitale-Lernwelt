@@ -18,7 +18,8 @@ button{border-color:#bfcee3;border-radius:10px;font-weight:650}button.primary,.p
 .marking .token{cursor:crosshair}.token.marked{outline:2px solid #225dc3;border-radius:3px;background:#e4efff!important}.token:focus-visible{outline:2px solid #995000}.token{box-decoration-break:clone}
 .solution-note{margin-top:16px;background:#e3f7ed;border-color:#87bea5}.solution-note h2{font-size:1.3rem}.solution-note p{margin-bottom:0}
 .table-scroll{overflow-x:auto}.match-table{border-collapse:collapse;width:100%;min-width:680px}.match-table td,.match-table th{border:1px solid #bdcfe4;padding:7px;vertical-align:top}.match-table thead{background:#dceafa}.match-table td:nth-child(3),.match-table td:nth-child(4){width:32%}.table-slot{width:100%;min-height:48px;text-align:left;font-size:.9rem}.tile-bank{display:flex;gap:8px;flex-wrap:wrap}.tile-bank button{font-size:.88rem;text-align:left}.tile-bank button[aria-pressed=true]{background:#d8eaff;outline:2px solid #225dc3}.result{display:block;font-size:.85rem}.right{color:#17644e}.wrong{color:#9d2036}.remove-card{font-size:.75rem;padding:2px 6px;margin-top:4px}.match-table button:disabled{opacity:.5;cursor:default}#table-password{font:inherit;padding:8px;border:1px solid #a8bad1;border-radius:7px}
-.table-entry{display:flex;justify-content:flex-end;margin-top:24px}</style><main id="app"></main>
+.table-entry{display:flex;justify-content:flex-end;margin-top:24px}.table-view{font-family:"Segoe Print","Bradley Hand","Comic Sans MS","Trebuchet MS",cursive}.table-view button,.table-view input{font-family:inherit}.table-view .tile-feature{background:#fff1ad;border-color:#ab8a20;color:#332900}.table-view .tile-fake{background:#ffdbdf;border-color:#ae4c56;color:#4b1821}.table-view .tile-serious{background:#d8f4df;border-color:#478460;color:#153c25}.table-view .tile-bank button[aria-pressed=true]{outline:3px solid #225dc3;outline-offset:2px}.table-view .tile-feature:hover,.table-view .tile-fake:hover,.table-view .tile-serious:hover{box-shadow:inset 0 0 0 1px currentColor}
+</style><main id="app"></main>
 <script>
 const app=document.querySelector('#app');
 const labels={product:'Produkt',reviews:'Bewertungen',contact:'Kontakt',legal:'Impressum',terms:'AGB',details:'Produktdetails',checkout:'Zur Bestellung'};
@@ -110,8 +111,9 @@ const order=cards.map((_,i)=>i);
 for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]]}
 let tableOpen=false, picked=null, tableUnlocked=false;
 const columns=['Merkmal','Fake-Shop','Seriöser Online-Shop'];
+const tileTone=id=>['feature','fake','serious'][id%3];
 function renderTable(){
- app.className='';
+ app.className='table-view';
  if(!tableUnlocked){
   app.innerHTML='<section><button data-table="back">← Startseite</button><h1>Tabelle öffnen</h1><form id="table-pass"><label for="table-password">Passwort</label> <input id="table-password" type="password" required> <button class="primary">Öffnen</button><p id="pass-status" role="status"></p></form></section>';
   return;
@@ -119,11 +121,11 @@ function renderTable(){
  const rows=tableRows.map((_,row)=>{
   const cells=columns.map((name,col)=>{
    const i=row*3+col, value=slots[i], result=checked.has(row)?(i===value?'Richtig':'Falsch'):'';
-   return '<td><button class="table-slot" data-slot="'+i+'" aria-label="Zeile '+(row+1)+', '+name+(value===null?', leer':', '+cards[value])+'">'+(value===null?'Eintrag einsetzen':cards[value])+'</button>'+(result?'<strong class="result '+(i===value?'right':'wrong')+'">'+result+'</strong>':'')+(value===null?'':'<button class="remove-card" data-remove="'+i+'" aria-label="Eintrag aus Zeile '+(row+1)+', '+name+' zurücklegen">↩ Zurücklegen</button>')+'</td>';
+   return '<td><button class="table-slot '+(value===null?'':'tile-'+tileTone(value))+'" data-slot="'+i+'" aria-label="Zeile '+(row+1)+', '+name+(value===null?', leer':', '+cards[value])+'">'+(value===null?'Eintrag einsetzen':cards[value])+'</button>'+(result?'<strong class="result '+(i===value?'right':'wrong')+'">'+result+'</strong>':'')+(value===null?'':'<button class="remove-card" data-remove="'+i+'" aria-label="Eintrag aus Zeile '+(row+1)+', '+name+' zurücklegen">↩ Zurücklegen</button>')+'</td>';
   }).join('');
   return '<tr><th scope="row">'+(row+1)+'</th>'+cells+'<td><button data-check-row="'+row+'"'+(slots.slice(row*3,row*3+3).includes(null)?' disabled':'')+'>Zeile prüfen</button></td></tr>';
  }).join('');
- app.innerHTML='<section><button data-table="back">← Startseite</button><h1>Fake-Shop oder seriöser Online-Shop?</h1><p>Wähle ein Kästchen und dann die passende Zelle. Du kannst Einträge auch in die Tabelle ziehen. Prüfe eine Zeile, sobald alle drei Einträge eingesetzt sind.</p><p role="status">'+(picked===null?'Kein Kästchen ausgewählt.':'Ausgewählt: '+cards[picked])+'</p><div class="table-scroll"><table class="match-table"><thead><tr><th>Nr.</th>'+columns.map(name=>'<th scope="col">'+name+'</th>').join('')+'<th scope="col">Prüfung</th></tr></thead><tbody>'+rows+'</tbody></table></div><p><button data-table="clear">Tabelle leeren</button></p><h2>Kästchen</h2><div class="tile-bank">'+order.filter(i=>!slots.includes(i)).map(i=>'<button draggable="true" data-card="'+i+'" aria-pressed="'+(picked===i)+'">'+cards[i]+'</button>').join('')+'</div></section>';
+ app.innerHTML='<section><button data-table="back">← Startseite</button><h1>Fake-Shop oder seriöser Online-Shop?</h1><p>Wähle ein Kästchen und dann die passende Zelle. Du kannst Einträge auch in die Tabelle ziehen. Prüfe eine Zeile, sobald alle drei Einträge eingesetzt sind.</p><p role="status">'+(picked===null?'Kein Kästchen ausgewählt.':'Ausgewählt: '+cards[picked])+'</p><div class="table-scroll"><table class="match-table"><thead><tr><th>Nr.</th>'+columns.map(name=>'<th scope="col">'+name+'</th>').join('')+'<th scope="col">Prüfung</th></tr></thead><tbody>'+rows+'</tbody></table></div><p><button data-table="clear">Tabelle leeren</button></p><h2>Kästchen</h2><div class="tile-bank">'+order.filter(i=>!slots.includes(i)).map(i=>'<button class="tile-'+tileTone(i)+'" draggable="true" data-card="'+i+'" aria-pressed="'+(picked===i)+'">'+cards[i]+'</button>').join('')+'</div></section>';
 }
 function placeCard(i,value){
  if(!Number.isInteger(value)||!order.includes(value)||slots.includes(value))return;
