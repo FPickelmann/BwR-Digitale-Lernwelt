@@ -17,6 +17,7 @@ button{border-color:#bfcee3;border-radius:10px;font-weight:650}button.primary,.p
 .directory{background:#f5f5f7;border:1px solid #d3d6de;border-radius:18px;overflow:hidden;padding-bottom:18px}.directory-browser{display:flex;align-items:center;gap:10px;background:#e8ebf0;padding:12px 18px}.directory-browser code{background:white;border-radius:8px;padding:5px 10px;overflow-wrap:anywhere}.directory-banner{display:flex;align-items:center;gap:14px;background:#ffdb12;padding:16px 20px;border-radius:0 0 22px 22px}.directory-banner .trust{border:0;background:transparent;padding:0}.directory-search{flex:1;background:white;border-radius:24px;padding:8px 14px}.directory-label{margin:12px 20px;color:#45516a;font-size:.85rem}.directory-grid{display:grid;grid-template-columns: minmax(150px,1fr) 3fr;gap:16px;padding:0 20px 16px}.directory-grid aside,.directory-grid article{background:white;border-radius:13px;padding:17px;box-shadow:0 4px 13px #21314c12}.directory-grid article{border-top:6px solid #ffdb12}.directory-grid h2{font-size:1.25rem}.directory-grid h3{margin:0;font-size:1.4rem}.directory-valid{background:#def8e4;color:#205f33;border-radius:6px;padding:3px 8px}.directory>button{margin-left:20px}@media(max-width:560px){.directory-grid{grid-template-columns:1fr}.directory-grid aside ul{display:flex;gap:16px;flex-wrap:wrap;margin:0}.directory-banner{flex-wrap:wrap}}
 .marking .token{cursor:crosshair}.token.marked{outline:2px solid #225dc3;border-radius:3px;background:#e4efff!important}.token:focus-visible{outline:2px solid #995000}.token{box-decoration-break:clone}
 .solution-note{margin-top:16px;background:#e3f7ed;border-color:#87bea5}.solution-note h2{font-size:1.3rem}.solution-note p{margin-bottom:0}
+.table-scroll{overflow-x:auto}.match-table{border-collapse:collapse;width:100%;min-width:680px}.match-table td,.match-table th{border:1px solid #bdcfe4;padding:7px;vertical-align:top}.match-table thead{background:#dceafa}.match-table td:nth-child(3),.match-table td:nth-child(4){width:32%}.table-slot{width:100%;min-height:48px;text-align:left;font-size:.9rem}.tile-bank{display:flex;gap:8px;flex-wrap:wrap}.tile-bank button{font-size:.88rem;text-align:left}.tile-bank button[aria-pressed=true]{background:#d8eaff;outline:2px solid #225dc3}.result{display:block;font-size:.85rem}.right{color:#17644e}.wrong{color:#9d2036}.remove-card{font-size:.75rem;padding:2px 6px;margin-top:4px}.match-table button:disabled{opacity:.5;cursor:default}#table-password{font:inherit;padding:8px;border:1px solid #a8bad1;border-radius:7px}
 </style><main id="app"></main>
 <script>
 const app=document.querySelector('#app');
@@ -93,9 +94,55 @@ function body(){
  case 'details':return '<h2>Versand &amp; Rückgabe</h2>'+mark('details',fake?'<div class="delivery-error"><strong>Technische Schwierigkeiten</strong><p>Diese Seite ist momentan nicht verfügbar. Bitte versuche es später erneut.</p></div>':'<div class="cards delivery"><article class="card"><h3>Kostenloser Versand</h3><p>Versand mit DHL.</p></article><article class="card"><h3>14 Tage Rückgabe</h3><p>Rückgabe ohne Angabe von Gründen.</p></article><article class="card"><h3>Technischer Defekt?</h3><p>Wende dich an den Kundenservice. Er prüft den Fehler und erklärt die nächsten Schritte.</p></article></div><small>Versand- und Rückgabebedingungen der Unterrichtssimulation.</small>');
  }
 }
+const tableRows=[
+ ['Preise','Unrealistisch niedrige Preise für teure Produkte','Preis so kalkuliert, dass Gewinn möglich ist'],
+ ['Bezahlung','Nur Vorkasse per Überweisung','Mehrere Zahlungsarten, z. B. PayPal (mit Käuferschutz), Kauf auf Rechnung, Kreditkarte, SEPA-Lastschrift'],
+ ['Impressum','Fehlt, ist nicht aufrufbar, enthält unvollständige bzw. falsche Angaben, es ist nur ein Postfach angegeben','Name, Rechtsform, vollständige Anschrift, Kontaktdaten, ggf. Registerdaten, Umsatzsteuer-ID oder Wirtschafts-Identifikationsnummer'],
+ ['Kontaktdaten','Fehlen','Telefonnummer und E-Mail-Adresse mit eigener Domain, z. B. info@shopname.de'],
+ ['Gütesiegel','Erfundenes oder kopiertes Siegel ohne überprüfbaren Nachweis','Klick auf das Siegel führt zur Website des Zertifizierers mit einem gültigen Zertifikat für genau diesen Händler. Beispiele: Trusted Shops, s@fer-shopping, EHI, ips (datenschutz cert GmbH)'],
+ ['Bewertungen','Nur Bestbewertungen, keine älteren Bewertungen','Unterschiedliche Bewertungen über einen längeren Zeitraum, auch auf unabhängigen Plattformen'],
+ ['Shop-URL','Unverschlüsselte Verbindung (http://), Tippfehler im Markennamen (z. B. anazon.de), auffällige Endungen (z. B. .de.com oder .shop)','Verschlüsselte Verbindung (https://), meist mit Firmennamen in der Webadresse, z. B. https://firmenname.de'],
+ ['AGB','Fehlerhafte AGB, z. B. mit fremdem Firmennamen','Leicht auffindbare AGB, Firmenname stimmt mit dem Impressum überein'],
+ ['Erscheinungsbild der Website','Auffällige Rechtschreibfehler, Platzhaltertexte oder leere Unterseiten','Einheitlich gestaltete Website mit vollständigen, verständlichen Texten']
+];
+const cards=tableRows.flat(), slots=cards.map(()=>null), checked=new Set();
+const order=cards.map((_,i)=>i);
+for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]]}
+let tableOpen=false, picked=null, tableUnlocked=false;
+const columns=['Merkmal','Fake-Shop','Seriöser Online-Shop'];
+function renderTable(){
+ app.className='';
+ if(!tableUnlocked){
+  app.innerHTML='<section><button data-table="back">← Startseite</button><h1>Tabelle öffnen</h1><form id="table-pass"><label for="table-password">Passwort</label> <input id="table-password" type="password" required> <button class="primary">Öffnen</button><p id="pass-status" role="status"></p></form></section>';
+  return;
+ }
+ const rows=tableRows.map((_,row)=>{
+  const cells=columns.map((name,col)=>{
+   const i=row*3+col, value=slots[i], result=checked.has(row)?(i===value?'Richtig':'Falsch'):'';
+   return '<td><button class="table-slot" data-slot="'+i+'" aria-label="Zeile '+(row+1)+', '+name+(value===null?', leer':', '+cards[value])+'">'+(value===null?'Eintrag einsetzen':cards[value])+'</button>'+(result?'<strong class="result '+(i===value?'right':'wrong')+'">'+result+'</strong>':'')+(value===null?'':'<button class="remove-card" data-remove="'+i+'" aria-label="Eintrag aus Zeile '+(row+1)+', '+name+' zurücklegen">↩ Zurücklegen</button>')+'</td>';
+  }).join('');
+  return '<tr><th scope="row">'+(row+1)+'</th>'+cells+'<td><button data-check-row="'+row+'"'+(slots.slice(row*3,row*3+3).includes(null)?' disabled':'')+'>Zeile prüfen</button></td></tr>';
+ }).join('');
+ app.innerHTML='<section><button data-table="back">← Startseite</button><h1>Fake-Shop oder seriöser Online-Shop?</h1><p>Wähle ein Kästchen und dann die passende Zelle. Du kannst Einträge auch in die Tabelle ziehen. Prüfe eine Zeile, sobald alle drei Einträge eingesetzt sind.</p><p role="status">'+(picked===null?'Kein Kästchen ausgewählt.':'Ausgewählt: '+cards[picked])+'</p><div class="table-scroll"><table class="match-table"><thead><tr><th>Nr.</th>'+columns.map(name=>'<th scope="col">'+name+'</th>').join('')+'<th scope="col">Prüfung</th></tr></thead><tbody>'+rows+'</tbody></table></div><p><button data-table="clear">Tabelle leeren</button></p><h2>Kästchen</h2><div class="tile-bank">'+order.filter(i=>!slots.includes(i)).map(i=>'<button draggable="true" data-card="'+i+'" aria-pressed="'+(picked===i)+'">'+cards[i]+'</button>').join('')+'</div></section>';
+}
+function placeCard(i,value){
+ if(!Number.isInteger(value)||!order.includes(value)||slots.includes(value))return;
+ slots[i]=value;picked=null;checked.delete(Math.floor(i/3));renderTable();
+ app.querySelector('[data-slot="'+i+'"]').focus();
+}
+app.addEventListener('submit',e=>{
+ if(e.target.id!=='table-pass')return;
+ e.preventDefault();
+ if(app.querySelector('#table-password').value==='Merkmale'){tableUnlocked=true;renderTable()}
+ else app.querySelector('#pass-status').textContent='Das Passwort stimmt nicht.';
+});
+app.addEventListener('dragstart',e=>{const tile=e.target.closest('[data-card]');if(tile)e.dataTransfer.setData('text/plain',tile.dataset.card)});
+app.addEventListener('dragover',e=>{if(e.target.closest('[data-slot]'))e.preventDefault()});
+app.addEventListener('drop',e=>{const cell=e.target.closest('[data-slot]');if(cell){e.preventDefault();const value=e.dataTransfer.getData('text/plain');if(/^\\d+$/.test(value))placeCard(Number(cell.dataset.slot),Number(value))}});
 function render(){
  clearInterval(timer);
- if(!shop){app.className='';app.innerHTML='<header class="hero"><small>Wirtschaft und Recht · Unterrichtssimulation</small><h1>Fake-Shop oder seriöser Online-Shop?</h1><p><strong>Finde heraus, woran du den Unterschied erkennst.</strong></p><p>Öffnet zu zweit je einen Shop. Untersucht eure Seiten und vergleicht eure Funde.</p><div class="choices">'+btn('spar','Online-Shop Sparhandy','primary')+btn('apple','Online-Shop Apple','primary')+'</div><p><small>Die dargestellten Shops sind Simulationen. Es sind keine Käufe oder Zahlungen möglich. Die Übung ist unabhängig von Apple, Trusted Shops und dem gleichnamigen Anbieter Sparhandy.</small></p></header>';return}
+ if(tableOpen){renderTable();return}
+ if(!shop){app.className='';app.innerHTML='<header class="hero"><small>Wirtschaft und Recht · Unterrichtssimulation</small><h1>Fake-Shop oder seriöser Online-Shop?</h1><p><strong>Finde heraus, woran du den Unterschied erkennst.</strong></p><p>Öffnet zu zweit je einen Shop. Untersucht eure Seiten und vergleicht eure Funde.</p><div class="choices">'+btn('spar','Online-Shop Sparhandy','primary')+btn('apple','Online-Shop Apple','primary')+btn('table','Tabelle')+'</div><p><small>Die dargestellten Shops sind Simulationen. Es sind keine Käufe oder Zahlungen möglich. Die Übung ist unabhängig von Apple, Trusted Shops und dem gleichnamigen Anbieter Sparhandy.</small></p></header>';return}
  if(page==='certificate'){
  app.className='';
  app.innerHTML='<div class="directory"><div class="directory-browser"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><code>https://trustedshops.example/shopverzeichnis/apple</code></div><div class="directory-banner"><span class="trust"><i aria-hidden="true">e</i><strong>TRUSTED SHOPS</strong></span><div class="directory-search"><span aria-hidden="true">⌕</span> apple</div></div><p class="directory-label">Unterrichtssimulation · Nachgebildetes Shop-Verzeichnis</p><div class="directory-grid"><aside><h2>Kategorien</h2><ul><li>Elektronik</li><li>Computer &amp; Zubehör</li><li>Smartphones</li></ul></aside><div><h2>1 Ergebnis für „apple“</h2><article><h3>apple.com/de</h3><p><strong>4,8 / 5</strong> <span class="rating-stars partial" aria-hidden="true">★★★★★</span></p><p><strong>Gütesiegel</strong> <span class="directory-valid">Gültig in der Übung</span></p><p>Apple Distribution International Ltd.<br>Shop-Adresse: <strong>www.apple.com/de/</strong></p><small>Musterzertifikat für den Unterricht</small></article></div></div><button data-page="product">← Zurück zum Apple-Shop</button></div>';
@@ -114,6 +161,20 @@ app.addEventListener('click',e=>{
  if(marking&&hit){e.stopPropagation();e.preventDefault();const id=hit.dataset.mark;if(unlocked){const group=groups[shop].get(id);if(state().has(id)&&group){hint=group;render();document.querySelector('#solution-note').focus()}return}state().has(id)?state().delete(id):state().add(id);feedback='';render();app.querySelector('[data-mark="'+id+'"]').focus();return}
  const button=e.target.closest('button');if(!button)return;
  const action=button.dataset.action;
+ if(action==='table'){tableOpen=true;render();return}
+ if(tableOpen){
+  const {table,card,slot,remove,checkRow}=button.dataset;
+  if(table==='back'){tableOpen=false;render();return}
+  if(table==='clear'){slots.fill(null);checked.clear();picked=null}
+  if(card!==undefined){const id=Number(card);picked=picked===id?null:id}
+  if(slot!==undefined&&picked!==null){placeCard(Number(slot),picked);return}
+  if(remove!==undefined){const i=Number(remove);slots[i]=null;checked.delete(Math.floor(i/3))}
+  if(checkRow!==undefined){const row=Number(checkRow);if(!slots.slice(row*3,row*3+3).includes(null))checked.add(row)}
+  renderTable();
+  if(card!==undefined)app.querySelector('[data-card="'+card+'"]').focus();
+  if(checkRow!==undefined)app.querySelector('[data-check-row="'+checkRow+'"]').focus();
+  return;
+ }
  if(button.dataset.page){page=button.dataset.page;feedback='';if(isFake()&&page==='checkout'&&!sessionStorage.getItem('wr-fakeshop-deadline'))sessionStorage.setItem('wr-fakeshop-deadline',Date.now()+600000)}
  if(action==='home'){resetSearch();shop=''}
  if(action==='spar'||action==='apple'){shop=action;page='product';marking=false;feedback=''}
