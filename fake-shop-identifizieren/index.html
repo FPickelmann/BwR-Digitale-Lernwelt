@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>Fake-Shop identifizieren</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#e8efe9;color:#202934;font:17px/1.5 system-ui}main{max-width:900px;margin:auto;padding:24px}section,header{background:white;padding:24px;border:1px solid #aab5af;border-radius:12px;margin-bottom:16px}button,a.button{font:inherit;cursor:pointer;border:1px solid #34465d;border-radius:7px;background:white;color:#213348;padding:8px 13px;text-decoration:none}button.primary{background:#26374e;color:white}nav,.choices,.toolbar{display:flex;gap:8px;flex-wrap:wrap}.toolbar{position:sticky;top:0;background:#e8efe9;padding:10px 0;z-index:2;align-items:center}.product{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:24px}.phone{width:115px;height:218px;margin:auto;border:6px solid #202731;border-radius:22px;background:linear-gradient(145deg,#111927,#46566d,#151b25)}.price{font-size:1.8em;font-weight:bold}.hit{display:block;padding:8px;border-radius:5px}.marking .hit{cursor:crosshair}.marked{outline:3px solid #285d82;background:#e5f1ff}#timer{font-size:1.3em;font-weight:bold}.address{overflow-wrap:anywhere;background:#f1f3f5}small{display:block}h1,h2{line-height:1.15}@media(max-width:550px){main{padding:12px}section,header{padding:15px}.product{grid-template-columns:1fr}.phone{height:150px;width:80px}}
+</style><main id="app"></main>
+<script>
+const app=document.querySelector('#app');
+const labels={product:'Produkt',reviews:'Bewertungen',contact:'Kontakt',legal:'Impressum',terms:'AGB',details:'Produktdetails',checkout:'Zur Bestellung'};
+const clues=new Set(['price','pay','legal','contact','seal','reviews','url','terms','details']);
+let shop='',page='product',marking=false,feedback='',timer;
+const selected={spar:new Set(),apple:new Set()};
+const state=()=>selected[shop];
+const isFake=()=>shop==='spar';
+const mark=(id,body)=>'<div class="hit '+(state().has(id)?'marked':'')+'" data-mark="'+id+'"'+(marking?' tabindex="0" role="button" aria-pressed="'+state().has(id)+'"':'')+'>'+body+'</div>';
+const nav=(p)=>'<button data-page="'+p+'">'+labels[p]+'</button>';
+const btn=(action,label,cls='')=>'<button class="'+cls+'" data-action="'+action+'">'+label+'</button>';
+function tick(){
+ const node=document.querySelector('#clock'); if(!node)return;
+ const remaining=Math.max(0,Math.ceil((Number(sessionStorage.getItem('wr-fakeshop-deadline'))-Date.now())/1000));
+ node.textContent=remaining?Math.floor(remaining/60)+':'+String(remaining%60).padStart(2,'0'):'Angebot abgelaufen';
+}
+function body(){
+ const fake=isFake();
+ switch(page){
+ case 'product': return '<div class="product">'+mark('image','<div class="phone" role="img" aria-label="Schwarzes iPhone"></div>')+'<div>'+mark('model','<h2>iPhone</h2>256 GB · Schwarz')+mark('price',fake?'<span class="price">449 €</span> <del>1.449 €</del><br>Hier viel günstiger als bei Apple':'<span class="price">1.449 €</span>')+nav('checkout')+' '+nav('details')+'</div></div>'+mark('seal',fake?'<p><strong>◉ Trusted Shopp</strong></p>':'<p><a href="https://www.trustedshops.de/bewertung/info_XBA836F77173B1EFADBEDB0076F21B004.html" target="_blank" rel="noopener noreferrer">So sieht ein gültiges Gütesiegel aus · Trusted Shops</a></p>');
+ case 'checkout': return '<h2>Bestellung</h2>'+ (fake?mark('price','<div id="timer">Angebot nur noch 10 Minuten verfügbar<br><span id="clock">10:00</span></div>'):'')+mark('pay','<h3>Zahlungsarten</h3>'+(fake?'Nur Vorkasse per Überweisung':'PayPal (mit Käuferschutz) · Kauf auf Rechnung · Kreditkarte · SEPA-Lastschrift'))+'<p>iPhone · 256 GB · Schwarz</p>';
+ case 'reviews': return '<h2>Bewertungen</h2>'+mark('reviews',fake?'<p>★★★★★ · 10.11.2026 · Super Preis!</p><p>★★★★★ · 10.11.2026 · Alles perfekt!</p><p>★★★★★ · 09.11.2026 · Bester Shop!</p>':'<p>★★★★☆ · 30.10.2026 · Schnell geliefert, Verpackung etwas groß.</p><p>★★★☆☆ · 14.07.2026 · Lieferung kam später als angekündigt.</p><p>★★★★★ · 12.02.2026 · Bestellung und Lieferung problemlos.</p>');
+ case 'contact':return '<h2>Kontakt</h2>'+mark('contact',fake?'Kontaktformular · Nachricht schreiben':'Apple Store · 0800 2000 136 · <a href="https://www.apple.com/de/contact/" target="_blank" rel="noopener noreferrer">Weitere Kontaktmöglichkeiten</a>');
+ case 'legal':return '<h2>Impressum</h2>'+mark('legal',fake?'Sparhandy<br>Postfach 1234':'Apple Distribution International Ltd.<br>Hollyhill Industrial Estate, Hollyhill, Cork, Irland<br>Irisches Firmenregister: 470672');
+ case 'terms':return '<h2>AGB</h2>'+mark('terms',fake?'Diese Bedingungen gelten für Bestellungen bei TrendKauf24. Der Gesamtpreis wird vor dem Kauf angezeigt.':'Diese Bedingungen gelten für Bestellungen bei Apple Distribution International Ltd. <a href="https://www.apple.com/de/shop/help/your_account" target="_blank" rel="noopener noreferrer">Apple Einkaufshilfe</a>');
+ case 'details':return '<h2>Produktdetails</h2>'+mark('details',fake?'iPhone · 256 GB · Schwarz<br>Lieferumfang: [Text hier einfügen]':'iPhone in Schwarz mit 256 GB Speicher. Im Lieferumfang sind das iPhone und ein USB-C-Ladekabel enthalten.');
+ }
+}
+function render(){
+ clearInterval(timer);
+ if(!shop){app.innerHTML='<header><small>Wirtschaft und Recht · Unterrichtssimulation</small><h1>Fake-Shop identifizieren</h1><p>Öffnet zu zweit je einen Shop. Untersucht eure Seiten und vergleicht eure Funde.</p><div class="choices">'+btn('spar','Online-Shop Sparhandy','primary')+btn('apple','Online-Shop Apple','primary')+'</div><p><small>Die dargestellten Shops sind Simulationen. Es sind keine Käufe oder Zahlungen möglich. Die Übung ist unabhängig von Apple, Trusted Shops und dem gleichnamigen Anbieter Sparhandy.</small></p></header>';return}
+ app.className=marking?'marking':'';
+ app.innerHTML='<div class="toolbar">'+btn('home','← Shop-Auswahl')+btn('mark',marking?'Suchmodus beenden':'Suchmodus starten','primary')+(isFake()?btn('check','Auswahl prüfen'):'')+'<span role="status">'+feedback+'</span></div><header>'+mark('url','<small class="address">◉ &nbsp; '+(isFake()?'http://aple-angebote.shop':'https://www.apple.com/de/')+'</small>')+'<h1>'+(isFake()?'Sparhandy':'Apple')+'</h1><nav>'+['product','reviews','contact'].map(nav).join('')+'</nav></header><section>'+body()+'</section><section><nav>'+['legal','terms','contact'].map(nav).join('')+'</nav></section><small>Unterrichtssimulation · '+(isFake()?'Sparhandy':'Apple-Vergleichsseite')+'</small>';
+ tick();if(document.querySelector('#clock'))timer=setInterval(tick,1000);
+}
+app.addEventListener('click',e=>{
+ const hit=e.target.closest('[data-mark]');
+ if(marking&&hit){e.preventDefault();const id=hit.dataset.mark;state().has(id)?state().delete(id):state().add(id);feedback='';render();app.querySelector('[data-mark="'+id+'"]').focus();return}
+ const button=e.target.closest('button');if(!button)return;
+ const action=button.dataset.action;
+ if(button.dataset.page){page=button.dataset.page;feedback='';if(isFake()&&page==='checkout'&&!sessionStorage.getItem('wr-fakeshop-deadline'))sessionStorage.setItem('wr-fakeshop-deadline',Date.now()+600000)}
+ if(action==='home'){shop='';marking=false;feedback=''}
+ if(action==='spar'||action==='apple'){shop=action;page='product';marking=false;feedback=''}
+ if(action==='mark')marking=!marking;
+ if(action==='check'){const count=[...state()].filter(id=>clues.has(id)).length;feedback=count+' von 9 gefunden · '+(9-count)+' fehlen · '+(state().size-count)+' falsch markiert'}
+ render();
+});
+app.addEventListener('keydown',e=>{if(marking&&e.target.matches('[data-mark]')&&['Enter',' '].includes(e.key)){e.preventDefault();e.target.click()}});
+render();
+</script>
