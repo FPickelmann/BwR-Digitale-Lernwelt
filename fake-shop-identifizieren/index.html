@@ -53,7 +53,7 @@ function render(){
  return;
  }
  app.className=marking?'marking':'';
- app.innerHTML='<div class="toolbar">'+btn('home','← Shop-Auswahl')+btn('mark',marking?'Suchmodus beenden':'Suchmodus starten','primary')+(isFake()?btn('check','Auswahl prüfen'):'')+'<span role="status">'+feedback+'</span></div><header>'+mark('url','<small class="address"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>'+(isFake()?'http://aple-angebote.shop':'https://www.apple.com/de/')+'</small>')+'<h1>'+(isFake()?'Sparhandy':'Apple')+'</h1><nav>'+['product','reviews','contact'].map(nav).join('')+'</nav></header><section>'+body()+'</section><section><nav>'+['legal','terms','contact'].map(nav).join('')+'</nav></section><small>Unterrichtssimulation · '+(isFake()?'Sparhandy':'Apple-Vergleichsseite')+'</small>';
+ app.innerHTML='<div class="toolbar">'+btn('home','← Shop-Auswahl')+btn('mark',marking?'Suchmodus beenden':'Suchmodus starten','primary')+btn('check','Auswahl prüfen')+'<span role="status">'+feedback+'</span></div><header>'+mark('url','<small class="address"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>'+(isFake()?'http://aple-angebote.shop':'https://www.apple.com/de/')+'</small>')+'<h1>'+(isFake()?'Sparhandy':'Apple')+'</h1><nav>'+['product','reviews','contact'].map(nav).join('')+'</nav></header><section>'+body()+'</section><section><nav>'+['legal','terms','contact'].map(nav).join('')+'</nav></section><small>Unterrichtssimulation · '+(isFake()?'Sparhandy':'Apple-Vergleichsseite')+'</small>';
  tick();if(document.querySelector('#clock'))timer=setInterval(tick,1000);
 }
 app.addEventListener('click',e=>{
@@ -65,7 +65,7 @@ app.addEventListener('click',e=>{
  if(action==='home'){shop='';marking=false;feedback=''}
  if(action==='spar'||action==='apple'){shop=action;page='product';marking=false;feedback=''}
  if(action==='mark')marking=!marking;
- if(action==='check'){const count=[...state()].filter(id=>clues.has(id)).length;feedback=count+' von 9 gefunden · '+(9-count)+' fehlen · '+(state().size-count)+' falsch markiert'}
+ if(action==='check'){const count=[...state()].filter(id=>clues.has(id)).length;feedback=(isFake()?'Fake-Shop-Merkmale identifizieren':'Merkmale eines seriösen Online-Shops identifizieren')+' · '+count+' von 9 gefunden · '+(9-count)+' fehlen · '+(state().size-count)+' falsch markiert'}
  render();
 });
 app.addEventListener('keydown',e=>{if(marking&&e.target.matches('[data-mark]')&&['Enter',' '].includes(e.key)){e.preventDefault();e.target.click()}});
