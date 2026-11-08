@@ -18,7 +18,7 @@ button{border-color:#bfcee3;border-radius:10px;font-weight:650}button.primary,.p
 .marking .token{cursor:crosshair}.token.marked{outline:2px solid #225dc3;border-radius:3px;background:#e4efff!important}.token:focus-visible{outline:2px solid #995000}.token{box-decoration-break:clone}
 .solution-note{margin-top:16px;background:#e3f7ed;border-color:#87bea5}.solution-note h2{font-size:1.3rem}.solution-note p{margin-bottom:0}
 .table-scroll{overflow-x:auto}.match-table{border-collapse:collapse;width:100%;min-width:680px}.match-table td,.match-table th{border:1px solid #bdcfe4;padding:7px;vertical-align:top}.match-table thead{background:#dceafa}.match-table td:nth-child(3),.match-table td:nth-child(4){width:32%}.table-slot{width:100%;min-height:48px;text-align:left;font-size:.9rem}.tile-bank{display:flex;gap:8px;flex-wrap:wrap}.tile-bank button{font-size:.88rem;text-align:left}.tile-bank button[aria-pressed=true]{background:#d8eaff;outline:2px solid #225dc3}.result{display:block;font-size:.85rem}.right{color:#17644e}.wrong{color:#9d2036}.remove-card{font-size:.75rem;padding:2px 6px;margin-top:4px}.match-table button:disabled{opacity:.5;cursor:default}#table-password{font:inherit;padding:8px;border:1px solid #a8bad1;border-radius:7px}
-</style><main id="app"></main>
+.table-entry{display:flex;justify-content:flex-end;margin-top:24px}</style><main id="app"></main>
 <script>
 const app=document.querySelector('#app');
 const labels={product:'Produkt',reviews:'Bewertungen',contact:'Kontakt',legal:'Impressum',terms:'AGB',details:'Produktdetails',checkout:'Zur Bestellung'};
@@ -133,7 +133,7 @@ function placeCard(i,value){
 app.addEventListener('submit',e=>{
  if(e.target.id!=='table-pass')return;
  e.preventDefault();
- if(app.querySelector('#table-password').value==='Merkmale'){tableUnlocked=true;renderTable()}
+ if(app.querySelector('#table-password').value.trim().toLowerCase()==='merkmale'){tableUnlocked=true;renderTable()}
  else app.querySelector('#pass-status').textContent='Das Passwort stimmt nicht.';
 });
 app.addEventListener('dragstart',e=>{const tile=e.target.closest('[data-card]');if(tile)e.dataTransfer.setData('text/plain',tile.dataset.card)});
@@ -142,7 +142,7 @@ app.addEventListener('drop',e=>{const cell=e.target.closest('[data-slot]');if(ce
 function render(){
  clearInterval(timer);
  if(tableOpen){renderTable();return}
- if(!shop){app.className='';app.innerHTML='<header class="hero"><small>Wirtschaft und Recht · Unterrichtssimulation</small><h1>Fake-Shop oder seriöser Online-Shop?</h1><p><strong>Finde heraus, woran du den Unterschied erkennst.</strong></p><p>Öffnet zu zweit je einen Shop. Untersucht eure Seiten und vergleicht eure Funde.</p><div class="choices">'+btn('spar','Online-Shop Sparhandy','primary')+btn('apple','Online-Shop Apple','primary')+btn('table','Tabelle')+'</div><p><small>Die dargestellten Shops sind Simulationen. Es sind keine Käufe oder Zahlungen möglich. Die Übung ist unabhängig von Apple, Trusted Shops und dem gleichnamigen Anbieter Sparhandy.</small></p></header>';return}
+ if(!shop){app.className='';app.innerHTML='<header class="hero"><small>Wirtschaft und Recht · Unterrichtssimulation</small><h1>Fake-Shop oder seriöser Online-Shop?</h1><p><strong>Finde heraus, woran du den Unterschied erkennst.</strong></p><p>Öffnet zu zweit je einen Shop. Untersucht eure Seiten und vergleicht eure Funde.</p><div class="choices">'+btn('spar','Online-Shop Sparhandy','primary')+btn('apple','Online-Shop Apple','primary')+'</div><p><small>Die dargestellten Shops sind Simulationen. Es sind keine Käufe oder Zahlungen möglich. Die Übung ist unabhängig von Apple, Trusted Shops und dem gleichnamigen Anbieter Sparhandy.</small></p></header><footer class="table-entry">'+btn('table','Tabelle')+'</footer>';return}
  if(page==='certificate'){
  app.className='';
  app.innerHTML='<div class="directory"><div class="directory-browser"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><code>https://trustedshops.example/shopverzeichnis/apple</code></div><div class="directory-banner"><span class="trust"><i aria-hidden="true">e</i><strong>TRUSTED SHOPS</strong></span><div class="directory-search"><span aria-hidden="true">⌕</span> apple</div></div><p class="directory-label">Unterrichtssimulation · Nachgebildetes Shop-Verzeichnis</p><div class="directory-grid"><aside><h2>Kategorien</h2><ul><li>Elektronik</li><li>Computer &amp; Zubehör</li><li>Smartphones</li></ul></aside><div><h2>1 Ergebnis für „apple“</h2><article><h3>apple.com/de</h3><p><strong>4,8 / 5</strong> <span class="rating-stars partial" aria-hidden="true">★★★★★</span></p><p><strong>Gütesiegel</strong> <span class="directory-valid">Gültig in der Übung</span></p><p>Apple Distribution International Ltd.<br>Shop-Adresse: <strong>www.apple.com/de/</strong></p><small>Musterzertifikat für den Unterricht</small></article></div></div><button data-page="product">← Zurück zum Apple-Shop</button></div>';
