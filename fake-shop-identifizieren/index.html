@@ -19,6 +19,8 @@ button{border-color:#bfcee3;border-radius:10px;font-weight:650}button.primary,.p
 .solution-note{margin-top:16px;background:#e3f7ed;border-color:#87bea5}.solution-note h2{font-size:1.3rem}.solution-note p{margin-bottom:0}
 .table-scroll{overflow-x:auto}.match-table{border-collapse:collapse;width:100%;min-width:680px}.match-table td,.match-table th{border:1px solid #bdcfe4;padding:7px;vertical-align:top}.match-table thead{background:#dceafa}.match-table td:nth-child(3),.match-table td:nth-child(4){width:32%}.table-slot{width:100%;min-height:48px;text-align:left;font-size:.9rem}.tile-bank{display:flex;gap:8px;flex-wrap:wrap}.tile-bank button{font-size:.88rem;text-align:left}.tile-bank button[aria-pressed=true]{background:#d8eaff;outline:2px solid #225dc3}.result{display:block;font-size:.85rem}.right{color:#17644e}.wrong{color:#9d2036}.remove-card{font-size:.75rem;padding:2px 6px;margin-top:4px}.match-table button:disabled{opacity:.5;cursor:default}#table-password{font:inherit;padding:8px;border:1px solid #a8bad1;border-radius:7px}
 .table-entry{display:flex;justify-content:flex-end;margin-top:24px}.table-view{font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif}.table-view button,.table-view input{font-family:inherit}.table-view .tile-feature{background:#fff1ad;border-color:#ab8a20;color:#332900}.table-view .tile-fake{background:#ffdbdf;border-color:#ae4c56;color:#4b1821}.table-view .tile-serious{background:#d8f4df;border-color:#478460;color:#153c25}.table-view .tile-bank button[aria-pressed=true]{outline:3px solid #225dc3;outline-offset:2px}.table-view .tile-feature:hover,.table-view .tile-fake:hover,.table-view .tile-serious:hover{box-shadow:inset 0 0 0 1px currentColor}
+
+.puzzle-shell{background:#f4f9ff}.puzzle-heading,.puzzle-controls{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.puzzle-heading{justify-content:space-between}.puzzle-heading strong,.puzzle-controls [role=status]:not(:empty){background:#dcecff;border-radius:12px;padding:7px 11px}.puzzle-table{border-collapse:separate;border-spacing:4px;width:100%;min-width:620px}.puzzle-table th,.puzzle-table td{padding:7px 9px;border-radius:8px;background:#e4f0fc;text-align:left}.puzzle-table th:nth-child(3),.puzzle-table td:nth-child(3),.puzzle-table td:nth-child(4){background:#ffe8eb}.puzzle-table th:last-child,.puzzle-table td:last-child{background:#def5e8}.puzzle-table button,.puzzle-words button{padding:5px 9px}.puzzle-table button[aria-pressed=true]{outline:2px solid #2459a2}.puzzle-words{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}.puzzle-words button{background:#fff0af;border-color:#a98117}.puzzle-shell button:disabled{opacity:.52;cursor:default}.puzzle-example{margin:5px 0;color:#6f1930}.paper-bank{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr));gap:10px}.paper{display:flex;align-items:flex-start;gap:8px;text-align:left;padding:12px!important;font-weight:600;min-height:74px}.paper-fake{background:#ffdde3;border-color:#a35065}.paper-serious{background:#dbf5e5;border-color:#458464}.paper-id,.paper-other{display:inline-grid;place-items:center;flex:0 0 25px;height:25px;border-radius:5px}.paper-id{background:#213b62;color:#fff}.paper-other{background:#fff;border:1px solid #6c7990}.paper[aria-pressed=true]{outline:3px solid #255aa7;outline-offset:1px}.joined-panel{margin-top:12px;padding:14px;background:#e5efff;border-radius:14px}.joined-panel h3{margin:0 0 8px}.joined-paper{display:grid;grid-template-columns:1fr 1fr;margin-bottom:10px}.joined-paper .paper{font-size:1.12rem;border:1px solid #899fb7;animation:join-puzzle .28s ease-out}.joined-paper .paper:first-child{border-radius:9px 0 0 9px}.joined-paper .paper:last-child{border-radius:0 9px 9px 0}.joined-paper .paper:first-child .paper-other{border-style:dashed}@keyframes join-puzzle{from{transform:scale(.95);opacity:.55}to{transform:scale(1);opacity:1}}@media(prefers-reduced-motion:reduce){.joined-paper .paper{animation:none}}@media(max-width:560px){.joined-paper{grid-template-columns:1fr}.joined-paper .paper{border-radius:0!important}}
 </style><main id="app"></main>
 <script>
 const app=document.querySelector('#app');
@@ -95,42 +97,84 @@ function body(){
  case 'details':return '<h2>Versand &amp; Rückgabe</h2>'+mark('details',fake?'<div class="delivery-error"><strong>Technische Schwierigkeiten</strong><p>Diese Seite ist momentan nicht verfügbar. Bitte versuche es später erneut.</p></div>':'<div class="cards delivery"><article class="card"><h3>Kostenloser Versand</h3><p>Versand mit DHL.</p></article><article class="card"><h3>14 Tage Rückgabe</h3><p>Rückgabe ohne Angabe von Gründen.</p></article><article class="card"><h3>Technischer Defekt?</h3><p>Wende dich an den Kundenservice. Er prüft den Fehler und erklärt die nächsten Schritte.</p></article></div><small>Versand- und Rückgabebedingungen der Unterrichtssimulation.</small>');
  }
 }
-const tableRows=[
- ['Preise','Unrealistisch niedrige Preise für teure Produkte','Preis so kalkuliert, dass Gewinn möglich ist'],
- ['Bezahlung','Nur Vorkasse per Überweisung','Mehrere Zahlungsarten, z. B. PayPal (mit Käuferschutz), Kauf auf Rechnung, Kreditkarte, SEPA-Lastschrift'],
- ['Impressum','Fehlt, ist nicht aufrufbar, enthält unvollständige bzw. falsche Angaben, es ist nur ein Postfach angegeben','Name, Rechtsform, vollständige Anschrift, Kontaktdaten, ggf. Registerdaten, Umsatzsteuer-ID oder Wirtschafts-Identifikationsnummer'],
- ['Kontaktdaten','Fehlen','Telefonnummer und E-Mail-Adresse mit eigener Domain, z. B. info@shopname.de'],
- ['Gütesiegel','Erfundenes oder kopiertes Siegel ohne überprüfbaren Nachweis','Klick auf das Siegel führt zur Website des Zertifizierers mit einem gültigen Zertifikat für genau diesen Händler. Beispiele: Trusted Shops, s@fer-shopping, EHI, ips (datenschutz cert GmbH)'],
- ['Bewertungen','Nur Bestbewertungen, keine älteren Bewertungen','Unterschiedliche Bewertungen über einen längeren Zeitraum, auch auf unabhängigen Plattformen'],
- ['Shop-URL','Unverschlüsselte Verbindung (http://), Tippfehler im Markennamen (z. B. anazon.de), auffällige Endungen (z. B. .de.com oder .shop)','Verschlüsselte Verbindung (https://), meist mit Firmennamen in der Webadresse, z. B. https://firmenname.de'],
- ['AGB','Fehlerhafte AGB, z. B. mit fremdem Firmennamen','Leicht auffindbare AGB, Firmenname stimmt mit dem Impressum überein'],
- ['Erscheinungsbild der Website','Auffällige Rechtschreibfehler, Platzhaltertexte oder leere Unterseiten','Einheitlich gestaltete Website mit vollständigen, verständlichen Texten']
+const puzzle=[
+ ['Preise','3','D','Unrealistisch niedrige Preise für teure Produkte','Preis berücksichtigt die Gewinnmarge','Louis-Vuitton-Handtasche: 200 € statt 2.000 €'],
+ ['Bezahlung','6','G','Nur Vorkasse per Überweisung','Mehrere Zahlungsarten, z. B. PayPal (Käuferschutz), Kauf auf Rechnung, Kreditkarte','Verkäufer verlangt Geld vor der Lieferung'],
+ ['Impressum','8','F','Fehlende, falsche oder unvollständige Angaben oder nur ein Postfach','Name, Rechtsform, Anschrift, Kontakt und USt-ID','Falsche Anschrift: Auf Google Maps nur ein unbebautes Grundstück'],
+ ['Kontaktdaten','7','B','Kontaktdaten fehlen','Telefonnummer und E-Mail-Adresse passen zum Firmennamen (info@shopname.de)','E-Mail-Adresse passt nicht zum Shop-Namen · Telefonnummer nicht vergeben'],
+ ['Gütesiegel','4','I','Siegel ohne Nachweis (z. B. Klicktest)','Siegel verlinkt auf ein gültiges Zertifikat für genau diesen Shop, z. B. Trusted Shops','Erfundenes oder kopiertes Siegel · nur ein Bild, kein Zertifikat per Klick'],
+ ['Bewertungen','1','E','Nur Bestbewertungen, keine älteren Bewertungen','Unterschiedliche Bewertungen über längere Zeit, auch auf unabhängigen Portalen','Nur neue Fünf-Sterne-Bewertungen · keine älteren Bewertungen'],
+ ['Shop-URL','9','H','Unverschlüsselte Verbindung, Tippfehler oder auffällige Domain','Verschlüsselte Verbindung, z. B. https://firmenname.de','http:// · Tippfehler wie anazon.de · unerwartete Endung wie .de.com oder .shop'],
+ ['AGB','2','A','Fehlerhafte AGB, z. B. mit fremdem Firmennamen','Leicht auffindbar, mit dem korrekten Firmennamen','Impressum: Sparhandy Ltd. · AGB: TrendKauf24'],
+ ['Erscheinungsbild der Website','5','C','Rechtschreibfehler oder leere Unterseiten','Stimmige Website','Unterseiten öffnen sich nicht · auffällige Rechtschreibfehler']
 ];
-const cards=tableRows.flat(), slots=cards.map(()=>null), checked=new Set();
-const order=cards.map((_,i)=>i);
-for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]]}
-let tableOpen=false, picked=null, tableUnlocked=false;
-const columns=['Merkmal','Fake-Shop','Seriöser Online-Shop'];
-const tileTone=id=>['feature','fake','serious'][id%3];
+const cardOrder=['4','D','A','H','7','6','1','G','F','B','9','5','I','3','C','8','E','2'];
+const cards=new Map(puzzle.flatMap((row,i)=>[[row[1],{i,side:0,text:row[3]}],[row[2],{i,side:1,text:row[4]}]]));
+const solved=new Map();
+const selectedPair=[null,null];
+let tableOpen=false,tableUnlocked=false,puzzleStatus='',joined=null,activeRow=null;
+function paper(key,other,interactive){
+ const {side,text}=cards.get(key);
+ const content='<span class="paper-id">'+key+'</span><span class="paper-other" aria-label="Gegenstück '+(other||'leer')+'">'+(other||'&nbsp;')+'</span><span>'+text+'</span>';
+ const cls='paper '+(side?'paper-serious':'paper-fake');
+ return interactive?'<button type="button" class="'+cls+'" data-paper="'+key+'" aria-pressed="'+(selectedPair[side]===key)+'">'+content+'</button>':'<div class="'+cls+'">'+content+'</div>';
+}
 function renderTable(){
  app.className='table-view';
  if(!tableUnlocked){
   app.innerHTML='<section><button data-table="back">← Startseite</button><h1>Tabelle öffnen</h1><form id="table-pass"><label for="table-password">Passwort</label> <input id="table-password" type="password" required> <button class="primary">Öffnen</button><p id="pass-status" role="status"></p></form></section>';
   return;
  }
- const rows=tableRows.map((_,row)=>{
-  const cells=columns.map((name,col)=>{
-   const i=row*3+col, value=slots[i], result=checked.has(row)?(i===value?'Richtig':'Falsch'):'';
-   return '<td><button class="table-slot '+(value===null?'':'tile-'+tileTone(value))+'" data-slot="'+i+'" aria-label="Zeile '+(row+1)+', '+name+(value===null?', leer':', '+cards[value])+'">'+(value===null?'Eintrag einsetzen':cards[value])+'</button>'+(result?'<strong class="result '+(i===value?'right':'wrong')+'">'+result+'</strong>':'')+(value===null?'':'<button class="remove-card" data-remove="'+i+'" aria-label="Eintrag aus Zeile '+(row+1)+', '+name+' zurücklegen">↩ Zurücklegen</button>')+'</td>';
-  }).join('');
-  return '<tr><th scope="row">'+(row+1)+'</th>'+cells+'<td><button data-check-row="'+row+'"'+(slots.slice(row*3,row*3+3).includes(null)?' disabled':'')+'>Zeile prüfen</button></td></tr>';
+ const completed=[...solved.values()].filter(row=>row.named).length;
+ const rows=puzzle.map((row,i)=>{
+  const item=solved.get(i);
+  const name=item?.named?'<strong>'+row[0]+'</strong>':item?'<button data-row="'+i+'" aria-pressed="'+(activeRow===i)+'">Merkmal wählen</button>':'<span class="pending">–</span>';
+  return '<tr><th scope="row">'+(i+1)+'</th><td>'+name+'</td><td>'+ (item?row[1]:'–')+'</td><td>'+(item?.named?'<button data-example="'+i+'" aria-expanded="'+item.example+'">'+(item.example?'Beispiel ausblenden':'Beispiel anzeigen')+'</button>'+(item.example?'<p class="puzzle-example">'+row[5]+'</p>':''):'–')+'</td><td>'+(item?row[2]:'–')+'</td></tr>';
  }).join('');
- app.innerHTML='<section><button data-table="back">← Startseite</button><h1>Fake-Shop oder seriöser Online-Shop?</h1><p>Wähle ein Kästchen und dann die passende Zelle. Du kannst Einträge auch in die Tabelle ziehen. Prüfe eine Zeile, sobald alle drei Einträge eingesetzt sind.</p><p role="status">'+(picked===null?'Kein Kästchen ausgewählt.':'Ausgewählt: '+cards[picked])+'</p><div class="table-scroll"><table class="match-table"><thead><tr><th>Nr.</th>'+columns.map(name=>'<th scope="col">'+name+'</th>').join('')+'<th scope="col">Prüfung</th></tr></thead><tbody>'+rows+'</tbody></table></div><p><button data-table="clear">Tabelle leeren</button></p><h2>Kästchen</h2><div class="tile-bank">'+order.filter(i=>!slots.includes(i)).map(i=>'<button class="tile-'+tileTone(i)+'" draggable="true" data-card="'+i+'" aria-pressed="'+(picked===i)+'">'+cards[i]+'</button>').join('')+'</div></section>';
+ const wordBank=puzzle.map((row,i)=>({row,i})).sort((a,b)=>a.row[0].localeCompare(b.row[0],'de')).map(({row,i})=>'<button data-word="'+i+'"'+(activeRow===null||solved.get(i)?.named?' disabled':'')+'>'+row[0]+'</button>').join('');
+ const bank=cardOrder.filter(key=>!solved.has(cards.get(key).i)).map(key=>{
+  const side=cards.get(key).side;
+  return paper(key,selectedPair[side]===key?selectedPair[1-side]:null,true);
+ }).join('');
+ const joinedView=joined===null?'':'<div class="joined-panel"><h3>Das Paar passt!</h3><div class="joined-paper">'+paper(puzzle[joined][1],puzzle[joined][2],false)+paper(puzzle[joined][2],puzzle[joined][1],false)+'</div><button data-table="wordbank">Zur Wörterbank</button></div>';
+ app.innerHTML='<section class="puzzle-shell"><div class="puzzle-heading"><button data-table="back">← Startseite</button><strong>'+completed+' / 9 Merkmale zugeordnet</strong></div><h1>Warnsignale im Überblick</h1><p>Bonnies Hund hat die Übersicht zerrissen. Ordnet die Schnipsel paarweise zu und findet das gemeinsame Merkmal.</p><div class="table-scroll"><table class="puzzle-table"><thead><tr><th scope="col">Nr.</th><th scope="col">Merkmal</th><th scope="colgroup" colspan="2">Fake-Shop · Nummer und Beispiel</th><th scope="col">Seriöser Online-Shop</th></tr></thead><tbody>'+rows+'</tbody></table></div><div id="puzzle-words" tabindex="-1"><h2>Wörterbank</h2><p>'+(activeRow===null?'Findet zuerst ein Schnipselpaar.':'Wählt das Merkmal für Zeile '+(activeRow+1)+'.')+'</p><div class="puzzle-words">'+wordBank+'</div></div><div class="puzzle-controls"><button class="primary" data-table="check"'+(selectedPair.includes(null)?' disabled':'')+'>Paar prüfen</button><button data-table="undo"'+(solved.size?'':' disabled')+'>Letztes Paar zurücklegen</button><button data-table="clear">Tabelle leeren</button><span role="status">'+puzzleStatus+'</span></div>'+joinedView+'<h2>Schnipsel</h2><p>Zahlen: Fake-Shop · Buchstaben: seriöser Online-Shop</p><div class="paper-bank">'+bank+'</div></section>';
 }
-function placeCard(i,value){
- if(!Number.isInteger(value)||!order.includes(value)||slots.includes(value))return;
- slots[i]=value;picked=null;checked.delete(Math.floor(i/3));renderTable();
- app.querySelector('[data-slot="'+i+'"]').focus();
+function handlePuzzle(button){
+ const {table,paper:key,row,word,example}=button.dataset;
+ if(table==='back'){tableOpen=false;render();return}
+ if(table==='clear'){solved.clear();selectedPair.fill(null);joined=null;activeRow=null;puzzleStatus=''}
+ if(table==='undo'){
+  const last=[...solved.keys()].pop();
+  solved.delete(last);if(activeRow===last)activeRow=null;if(joined===last)joined=null;
+  selectedPair.fill(null);puzzleStatus='Paar zurückgelegt.';
+ }
+ if(key!==undefined){
+  const {side}=cards.get(key);
+  selectedPair[side]=selectedPair[side]===key?null:key;
+  joined=null;puzzleStatus='';
+ }
+ if(table==='check'&&!selectedPair.includes(null)){
+  const left=cards.get(selectedPair[0]).i,right=cards.get(selectedPair[1]).i;
+  selectedPair.fill(null);
+  if(left===right){
+   solved.set(left,{named:false,example:false});activeRow=left;joined=left;
+   puzzleStatus='Richtig! Wählt jetzt das passende Merkmal.';
+  }else{joined=null;puzzleStatus='Versuche es noch einmal!'}
+ }
+ if(row!==undefined){activeRow=Number(row);puzzleStatus=''}
+ if(word!==undefined&&activeRow!==null){
+  if(Number(word)===activeRow){
+   solved.get(activeRow).named=true;activeRow=null;puzzleStatus='Merkmal richtig zugeordnet.';
+  }else puzzleStatus='Das Merkmal passt noch nicht. Versuche es noch einmal!';
+ }
+ if(example!==undefined){const item=solved.get(Number(example));if(item?.named)item.example=!item.example}
+ renderTable();
+ if(table==='wordbank'||row!==undefined)app.querySelector('#puzzle-words').focus();
+ else if(table==='check'){
+  const panel=app.querySelector('.joined-panel');
+  if(panel)panel.scrollIntoView({block:'nearest',behavior:'smooth'});
+ }else if(key!==undefined)app.querySelector('[data-paper="'+key+'"]')?.focus({preventScroll:true});
+ else if(example!==undefined)app.querySelector('[data-example="'+example+'"]')?.focus({preventScroll:true});
 }
 app.addEventListener('submit',e=>{
  if(e.target.id!=='table-pass')return;
@@ -138,9 +182,6 @@ app.addEventListener('submit',e=>{
  if(app.querySelector('#table-password').value.trim().toLowerCase()==='merkmale'){tableUnlocked=true;renderTable()}
  else app.querySelector('#pass-status').textContent='Das Passwort stimmt nicht.';
 });
-app.addEventListener('dragstart',e=>{const tile=e.target.closest('[data-card]');if(tile)e.dataTransfer.setData('text/plain',tile.dataset.card)});
-app.addEventListener('dragover',e=>{if(e.target.closest('[data-slot]'))e.preventDefault()});
-app.addEventListener('drop',e=>{const cell=e.target.closest('[data-slot]');if(cell){e.preventDefault();const value=e.dataTransfer.getData('text/plain');if(/^\\d+$/.test(value))placeCard(Number(cell.dataset.slot),Number(value))}});
 function render(){
  clearInterval(timer);
  if(tableOpen){renderTable();return}
@@ -164,20 +205,7 @@ app.addEventListener('click',e=>{
  const button=e.target.closest('button');if(!button)return;
  const action=button.dataset.action;
  if(action==='table'){tableOpen=true;render();return}
- if(tableOpen){
-  if(button.closest('#table-pass'))return;
-  const {table,card,slot,remove,checkRow}=button.dataset;
-  if(table==='back'){tableOpen=false;render();return}
-  if(table==='clear'){slots.fill(null);checked.clear();picked=null}
-  if(card!==undefined){const id=Number(card);picked=picked===id?null:id}
-  if(slot!==undefined&&picked!==null){placeCard(Number(slot),picked);return}
-  if(remove!==undefined){const i=Number(remove);slots[i]=null;checked.delete(Math.floor(i/3))}
-  if(checkRow!==undefined){const row=Number(checkRow);if(!slots.slice(row*3,row*3+3).includes(null))checked.add(row)}
-  renderTable();
-  if(card!==undefined)app.querySelector('[data-card="'+card+'"]').focus();
-  if(checkRow!==undefined)app.querySelector('[data-check-row="'+checkRow+'"]').focus();
-  return;
- }
+ if(tableOpen){if(!button.closest('#table-pass'))handlePuzzle(button);return}
  if(button.dataset.page){page=button.dataset.page;feedback='';if(isFake()&&page==='checkout'&&!sessionStorage.getItem('wr-fakeshop-deadline'))sessionStorage.setItem('wr-fakeshop-deadline',Date.now()+600000)}
  if(action==='home'){resetSearch();shop=''}
  if(action==='spar'||action==='apple'){shop=action;page='product';marking=false;feedback=''}
